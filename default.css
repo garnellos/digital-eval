@@ -7,6 +7,7 @@ body {
     border: thin solid #bbb;
     border-radius: 1em;
     padding: .5em;
+    margin-bottom: 1.5em;
 }
 
 .question .row {
@@ -25,4 +26,10 @@ body {
 .item-selection {
     padding-right: 1.1em !important;
     letter-spacing: .225em;
+    min-width: 0em;
+}
+
+input[name$=comment] {
+    font-size: 9pt;
+    max-height: 2em;
 }

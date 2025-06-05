@@ -1,109 +1,154 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <link href="./default.css" rel="stylesheet">
-    <link   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-            crossorigin="anonymous">
-</head>
-<body>
-<div class="container">
-    <form class="question" id="q1" style="margin-top: 1em;">
-        <div class="row">
-            <div class="col-8">
-                <strong>1. Welche Formen der Beteiligung und Selbstorganisation gibt es in Eurer Einrichtung und was ist für die Entscheidung über Aktivitäten besonders wichtig?</strong><br/>
-                Bitte wählt für jede Form der Beteiligung/Selbstorganisation aus, was am ehesten auf den Stand in Eurer Einrichtung zutrifft.
-                Wenn Ihr
-            </div>
-            <div class="col-2 legend-vertical">
-                Machen wir regelmäßig<br/>
-                Machen wir gelegentlich<br/>
-                Gibt es noch nicht, ist geplant<br/>
-                Für uns nicht möglich<br/>
-                Lehnen wir ab
-            </div>
-            <div class="col-2" style="vertical-align: text-bottom;">
-                Kommentar (optional)
-            </div>
+    <head>
+        <link href="./default.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container-md" style="min-width: 42em;">
+            <form id="form">
+                <div class="question" id="q1" style="margin-top: 1em;">
+                    <div class="row">
+                        <div class="col-9 col-md-8 col-sm-7">
+                            <strong>Frage 1: Welche Formen der Beteiligung und Selbstorganisation gibt es in Eurer Einrichtung und was ist für die Entscheidung über Aktivitäten besonders wichtig?</strong><br/>
+                            <span class="form-text">Bitte wählt für jede Form der Beteiligung/Selbstorganisation aus, was am ehesten auf den Stand in Eurer Einrichtung zutrifft.
+                            Wenn Ihr die Beteiligungsform <em>ablehnt</em> oder sie <em>regelmäßig</em> nutzt, gebt in der Kommentarspalte gerne die Begründung bzw. den Turnus an. Auch darüber hinaus könnt Ihr gern Kommentare nutzen.</span>
+                        </div>
+                        <div class="col-1 col-md-2 col-sm-3 legend-vertical">
+                            Machen wir regelmäßig<br/>
+                            Machen wir gelegentlich<br/>
+                            Gibt es noch nicht, ist geplant<br/>
+                            Für uns nicht möglich<br/>
+                            Lehnen wir ab
+                        </div>
+                        <div class="col-2" style="vertical-align: text-bottom;">
+                            Kommentar (optional)
+                        </div>
+                    </div>
+                    <!-- Vollversammlungen etc. -->
+                    <div class="row item">
+                        <div class="col-8 col-sm-7 item-description">
+                            Vollversammlungen, Plenum für alle Besucher*innen ohne Delegation
+                        </div>
+                        <div class="col-2 col-sm-3 item-selection" style="text-align: right">
+                            <input class="form-check-input" type="radio" name="q1-1"
+                                value="1" title="Lehnen wir ab" />
+                            <input class="form-check-input" type="radio" name="q1-1"
+                                value="2" title="Für uns nicht möglich" />
+                            <input class="form-check-input" type="radio" name="q1-1"
+                                value="3" title="Gibt es noch nicht, ist geplant" />
+                            <input class="form-check-input" type="radio" name="q1-1"
+                                value="4" title="Machen wir gelegentlich" />
+                            <input class="form-check-input" type="radio" name="q1-1"
+                                value="5" title="Machen wir regelmäßig" />
+                        </div>
+                        <div class="col-2">
+                            <input class="form-control" type="text"
+                                name="q1-1-comment" title="Ergänzender Kommentar" />
+                        </div>
+                    </div>
+                    <!-- Barcamps -->
+                    <div class="row item">
+                        <div class="col-8 col-sm-7 item-description">
+                            Barcamps
+                        </div>
+                        <div class="col-2 col-sm-3 item-selection" style="text-align: right">
+                            <input class="form-check-input" type="radio" name="q1-2"
+                                value="1" title="Lehnen wir ab" />
+                            <input class="form-check-input" type="radio" name="q1-2"
+                                value="2" title="Für uns nicht möglich" />
+                            <input class="form-check-input" type="radio" name="q1-2"
+                                value="3" title="Gibt es noch nicht, ist geplant" />
+                            <input class="form-check-input" type="radio" name="q1-2"
+                                value="4" title="Machen wir gelegentlich" />
+                            <input class="form-check-input" type="radio" name="q1-2"
+                                value="5" title="Machen wir regelmäßig" />
+                        </div>
+                        <div class="col-2">
+                            <input class="form-control" type="text"
+                                name="q1-2-comment" title="Ergänzender Kommentar" />
+                        </div>
+                    </div>
+                    <!-- Clubrat -->
+                    <div class="row item">
+                        <div class="col-8 col-sm-7 item-description">
+                            Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher*innen
+                        </div>
+                        <div class="col-2 col-sm-3 item-selection" style="text-align: right">
+                            <input class="form-check-input" type="radio" name="q1-3"
+                                value="1" title="Lehnen wir ab" />
+                            <input class="form-check-input" type="radio" name="q1-3"
+                                value="2" title="Für uns nicht möglich" />
+                            <input class="form-check-input" type="radio" name="q1-3"
+                                value="3" title="Gibt es noch nicht, ist geplant" />
+                            <input class="form-check-input" type="radio" name="q1-3"
+                                value="4" title="Machen wir gelegentlich" />
+                            <input class="form-check-input" type="radio" name="q1-3"
+                                value="5" title="Machen wir regelmäßig" />
+                        </div>
+                        <div class="col-2">
+                            <input class="form-control" type="text"
+                                name="q1-3-comment" title="Ergänzender Kommentar" />
+                        </div>
+                    </div>
+                    <!-- Vertretungen einzelner Angebote -->
+                    <div class="row item">
+                        <div class="col-8 col-sm-7 item-description">
+                            Vertretungen einzelner Angebote, z.B. Band-Rat, Werkstatt-Rat
+                        </div>
+                        <div class="col-2 col-sm-3 item-selection" style="text-align: right">
+                            <input class="form-check-input" type="radio" name="q1-4"
+                                value="1" title="Lehnen wir ab" />
+                            <input class="form-check-input" type="radio" name="q1-4"
+                                value="2" title="Für uns nicht möglich" />
+                            <input class="form-check-input" type="radio" name="q1-4"
+                                value="3" title="Gibt es noch nicht, ist geplant" />
+                            <input class="form-check-input" type="radio" name="q1-4"
+                                value="4" title="Machen wir gelegentlich" />
+                            <input class="form-check-input" type="radio" name="q1-4"
+                                value="5" title="Machen wir regelmäßig" />
+                        </div>
+                        <div class="col-2">
+                            <input class="form-control" type="text"
+                                name="q1-4-comment" title="Ergänzender Kommentar" />
+                        </div>
+                    </div>
+                    <!-- Selbstorganisierte Jugendgruppen -->
+                    <div class="row item">
+                        <div class="col-8 col-sm-7 item-description">
+                            Jugendgruppen, die weitgehend selbstorganisiert Angebote in der Einrichtung planen und durchführen
+                        </div>
+                        <div class="col-2 col-sm-3 item-selection" style="text-align: right">
+                            <input class="form-check-input" type="radio" name="q1-5"
+                                value="1" title="Lehnen wir ab" />
+                            <input class="form-check-input" type="radio" name="q1-5"
+                                value="2" title="Für uns nicht möglich" />
+                            <input class="form-check-input" type="radio" name="q1-5"
+                                value="3" title="Gibt es noch nicht, ist geplant" />
+                            <input class="form-check-input" type="radio" name="q1-5"
+                                value="4" title="Machen wir gelegentlich" />
+                            <input class="form-check-input" type="radio" name="q1-5"
+                                value="5" title="Machen wir regelmäßig" />
+                        </div>
+                        <div class="col-2">
+                            <input class="form-control" type="text"
+                                name="q1-5-comment" title="Ergänzender Kommentar" />
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="row">
+                        <div class="col-9">
+                            <strong>Frage 2: Welche Bedeutung haben die Ergebnisse der Beteiligung von Kindern und Jugendlichen für Eure Einrichtung?</strong>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-        <!-- Vollversammlungen etc. -->
-        <div class="row item">
-            <div class="col-8 item-description">
-                Vollversammlungen, Plenum für alle Besucher*innen ohne Delegation
-            </div>
-            <div class="col-2 item-selection" style="text-align: right">
-                <input class="form-check-input" type="radio" name="q1-1"
-                       value="1" title="Lehnen wir ab" />
-                <input class="form-check-input" type="radio" name="q1-1"
-                       value="2" title="Für uns nicht möglich" />
-                <input class="form-check-input" type="radio" name="q1-1"
-                       value="3" title="Gibt es noch nicht, ist geplant" />
-                <input class="form-check-input" type="radio" name="q1-1"
-                       value="4" title="Machen wir gelegentlich" />
-                <input class="form-check-input" type="radio" name="q1-1"
-                       value="5" title="Machen wir regelmäßig" />
-            </div>
-            <div class="col-2">
-                <input class="form-control form-control-sm" type="text"
-                       name="q1-1-comment" title="Ergänzender Kommentar" />
-            </div>
-        </div>
-        <!-- Barcamps -->
-        <div class="row item">
-            <div class="col-8 item-description">
-                Barcamps
-            </div>
-            <div class="col-2 item-selection" style="text-align: right">
-                <input class="form-check-input" type="radio" name="q1-2"
-                       value="1" title="Lehnen wir ab" />
-                <input class="form-check-input" type="radio" name="q1-2"
-                       value="2" title="Für uns nicht möglich" />
-                <input class="form-check-input" type="radio" name="q1-2"
-                       value="3" title="Gibt es noch nicht, ist geplant" />
-                <input class="form-check-input" type="radio" name="q1-2"
-                       value="4" title="Machen wir gelegentlich" />
-                <input class="form-check-input" type="radio" name="q1-2"
-                       value="5" title="Machen wir regelmäßig" />
-            </div>
-        </div>
-        <!-- Clubrat -->
-        <div class="row item">
-            <div class="col-8 item-description">
-                Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher*innen
-            </div>
-            <div class="col-2 item-selection" style="text-align: right">
-                <input class="form-check-input" type="radio" name="q1-3"
-                       value="1" title="Lehnen wir ab" />
-                <input class="form-check-input" type="radio" name="q1-3"
-                       value="2" title="Für uns nicht möglich" />
-                <input class="form-check-input" type="radio" name="q1-3"
-                       value="3" title="Gibt es noch nicht, ist geplant" />
-                <input class="form-check-input" type="radio" name="q1-3"
-                       value="4" title="Machen wir gelegentlich" />
-                <input class="form-check-input" type="radio" name="q1-3"
-                       value="5" title="Machen wir regelmäßig" />
-            </div>
-        </div>
-        <!-- Vertretungen einzelner Angebote -->
-        <div class="row item">
-            <div class="col-8 item-description">
-                Vertretungen einzelner Angebote, z.B. Band-Rat, Werkstatt-Rat
-            </div>
-            <div class="col-2 item-selection" style="text-align: right">
-                <input class="form-check-input" type="radio" name="q1-4"
-                       value="1" title="Lehnen wir ab" />
-                <input class="form-check-input" type="radio" name="q1-4"
-                       value="2" title="Für uns nicht möglich" />
-                <input class="form-check-input" type="radio" name="q1-4"
-                       value="3" title="Gibt es noch nicht, ist geplant" />
-                <input class="form-check-input" type="radio" name="q1-4"
-                       value="4" title="Machen wir gelegentlich" />
-                <input class="form-check-input" type="radio" name="q1-4"
-                       value="5" title="Machen wir regelmäßig" />
-            </div>
-        </div>
-    </form>
-</div>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
+        </script>
+    </body>
 </html>

@@ -1,0 +1,35 @@
+body {
+    background-color: #e8efff !important;
+}
+
+.question {
+    background-color: white;
+    border: thin solid #bbb;
+    border-radius: 1em;
+    padding: .5em;
+    margin-bottom: 1.5em;
+}
+
+.question .row {
+    padding: .25em;
+    /* border-top: thin solid #ddd; */
+}
+
+.legend-vertical {
+    font-family: "Arial Narrow";
+    padding-right: 0;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    text-align: right;
+}
+
+.item-selection {
+    padding-right: 1.1em !important;
+    letter-spacing: .225em;
+    min-width: 0em;
+}
+
+input[name$=comment] {
+    font-size: 9pt;
+    max-height: 2em;
+}

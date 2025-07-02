@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <meta charset="UTF-8">
     <style>
         body {
             background-color: #cfe2ff !important;
+            overflow-wrap: break-word;
+            /*word-break: break-word;*/
+            hyphens: auto;
         }
 
         .question {
             background-color: white;
             border: thin solid #bbb;
             border-radius: 1em;
-            padding: .5em;
+            padding: 1em;
             margin-bottom: 1.5em;
         }
 
         .question .row {
-            padding: .25em;
-            /* border-top: thin solid #ddd; */
+            padding: 1.5em;
+            border-bottom: thin solid #bbb;
         }
 
-        .legend-vertical {
-            font-family: "Arial Narrow";
-            padding-right: 0;
-            writing-mode: vertical-rl;
-            text-orientation: sideways;
-            text-align: right;
-        }
-
-        .item-selection {
-            padding-right: 1.1em !important;
-            letter-spacing: .225em;
-            min-width: 0em;
+        .question .row:last-child {
+            border-bottom: none;
         }
 
         input[name$=comment] {
             font-size: 9pt;
             max-height: 2em;
         }
+
+        input[type="radio"] {
+            border: 1.5px solid #666;
+            accent-color: #666;
+        }
+
+        input[type="text"] {
+            border: 1.5px solid #666;
+            accent-color: #666;
+        }
+
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -45,160 +50,17 @@
 </head>
 <body>
 <div class="container-md" style="min-width: 42em;">
+    <div class="question" id="header" style="margin-top: 1em; padding: 2em;">
+        <h1>Evaluationsbogen zur Beteiligung junger Menschen in der Neuköllner Jugendarbeit</h1>
+    </div>
     <form id="form">
-        <div class="question" id="q1" style="margin-top: 1em;">
-            <div class="row">
-                <div class="col-9 col-md-8 col-sm-7">
-                    <strong>Frage 1: Welche Formen der Beteiligung und Selbstorganisation gibt es in Eurer Einrichtung?</strong><br/>
-                    <span class="form-text">Bitte wählt für jede Form der Beteiligung/Selbstorganisation aus, was am ehesten auf den Stand in Eurer Einrichtung zutrifft.
-                            Wenn Ihr die Beteiligungsform <em>ablehnt</em> oder sie <em>regelmäßig</em> nutzt, gebt in der Kommentarspalte gerne die Begründung bzw. den Turnus an. Auch darüber hinaus könnt Ihr gern Kommentare nutzen.</span>
-                </div>
-                <div class="col-1 col-md-2 col-sm-3 legend-vertical">
-                    Machen wir regelmäßig<br/>
-                    Machen wir gelegentlich<br/>
-                    Gibt es noch nicht, ist geplant<br/>
-                    Für uns nicht möglich<br/>
-                    Lehnen wir ab
-                </div>
-                <div class="col-2" style="vertical-align: text-bottom;">
-                    Kommentar (optional)
-                </div>
-            </div>
-            <!-- Vollversammlungen etc. -->
-            <div class="row item">
-                <div class="col-8 col-sm-7 item-description">
-                    Vollversammlungen, Plenum für alle Besucher*innen ohne Delegation
-                </div>
-                <div class="col-2 col-sm-3 item-selection" style="text-align: right">
-                    <input class="form-check-input" type="radio" name="q1-1"
-                           value="1" title="Lehnen wir ab" />
-                    <input class="form-check-input" type="radio" name="q1-1"
-                           value="2" title="Für uns nicht möglich" />
-                    <input class="form-check-input" type="radio" name="q1-1"
-                           value="3" title="Gibt es noch nicht, ist geplant" />
-                    <input class="form-check-input" type="radio" name="q1-1"
-                           value="4" title="Machen wir gelegentlich" />
-                    <input class="form-check-input" type="radio" name="q1-1"
-                           value="5" title="Machen wir regelmäßig" />
-                </div>
-                <div class="col-2">
-                    <input class="form-control" type="text"
-                           name="q1-1-comment" title="Ergänzender Kommentar" />
-                </div>
-            </div>
-            <!-- Barcamps -->
-            <div class="row item">
-                <div class="col-8 col-sm-7 item-description">
-                    Barcamps
-                </div>
-                <div class="col-2 col-sm-3 item-selection" style="text-align: right">
-                    <input class="form-check-input" type="radio" name="q1-2"
-                           value="1" title="Lehnen wir ab" />
-                    <input class="form-check-input" type="radio" name="q1-2"
-                           value="2" title="Für uns nicht möglich" />
-                    <input class="form-check-input" type="radio" name="q1-2"
-                           value="3" title="Gibt es noch nicht, ist geplant" />
-                    <input class="form-check-input" type="radio" name="q1-2"
-                           value="4" title="Machen wir gelegentlich" />
-                    <input class="form-check-input" type="radio" name="q1-2"
-                           value="5" title="Machen wir regelmäßig" />
-                </div>
-                <div class="col-2">
-                    <input class="form-control" type="text"
-                           name="q1-2-comment" title="Ergänzender Kommentar" />
-                </div>
-            </div>
-            <!-- Clubrat -->
-            <div class="row item">
-                <div class="col-8 col-sm-7 item-description">
-                    Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher*innen
-                </div>
-                <div class="col-2 col-sm-3 item-selection" style="text-align: right">
-                    <input class="form-check-input" type="radio" name="q1-3"
-                           value="1" title="Lehnen wir ab" />
-                    <input class="form-check-input" type="radio" name="q1-3"
-                           value="2" title="Für uns nicht möglich" />
-                    <input class="form-check-input" type="radio" name="q1-3"
-                           value="3" title="Gibt es noch nicht, ist geplant" />
-                    <input class="form-check-input" type="radio" name="q1-3"
-                           value="4" title="Machen wir gelegentlich" />
-                    <input class="form-check-input" type="radio" name="q1-3"
-                           value="5" title="Machen wir regelmäßig" />
-                </div>
-                <div class="col-2">
-                    <input class="form-control" type="text"
-                           name="q1-3-comment" title="Ergänzender Kommentar" />
-                </div>
-            </div>
-            <!-- Vertretungen einzelner Angebote -->
-            <div class="row item">
-                <div class="col-8 col-sm-7 item-description">
-                    Vertretungen einzelner Angebote, z.B. Band-Rat, Werkstatt-Rat
-                </div>
-                <div class="col-2 col-sm-3 item-selection" style="text-align: right">
-                    <input class="form-check-input" type="radio" name="q1-4"
-                           value="1" title="Lehnen wir ab" />
-                    <input class="form-check-input" type="radio" name="q1-4"
-                           value="2" title="Für uns nicht möglich" />
-                    <input class="form-check-input" type="radio" name="q1-4"
-                           value="3" title="Gibt es noch nicht, ist geplant" />
-                    <input class="form-check-input" type="radio" name="q1-4"
-                           value="4" title="Machen wir gelegentlich" />
-                    <input class="form-check-input" type="radio" name="q1-4"
-                           value="5" title="Machen wir regelmäßig" />
-                </div>
-                <div class="col-2">
-                    <input class="form-control" type="text"
-                           name="q1-4-comment" title="Ergänzender Kommentar" />
-                </div>
-            </div>
-            <!-- Selbstorganisierte Jugendgruppen -->
-            <div class="row item">
-                <div class="col-8 col-sm-7 item-description">
-                    Jugendgruppen, die weitgehend selbstorganisiert Angebote in der Einrichtung planen und durchführen
-                    <ul>
-                        <li>Angebote von Peer-Helper*innen oder Jugendgruppenleiter*innen (mit Juleica) durchgeführt werden
-                        <li>Feste Ansprechperson für junge Ehrenamtliche und Jugendinitiativen
-                        <li>Fachkraft in der Einrichtung mit besonderem Schwerpunkt auf Kinder- und Jugendbeteiligung
-                        <li>Kummer- oder Wunschkasten, Wunsch-Pinnwand oder ähnliches
-                        <li>Beschwerdekasten mit externer Auswertung
-                        <li>Standardisierte Befragungen der Besucher*innen, z.B. mit Fragebögen
-                        <li>Teilnahme von Besucher*innen an Teambesprechungen
-                        <li>Evaluierung/Audit der Einrichtung durch die Besucher*innen
-                        <li>Eigene Projekte der Besucher*innen, die z.B. über die Jugendjury finanziert werden
-                        <li>Ferienprojekte zur Kinder- und Jugendbeteiligung
-                        <li>sozialraum- und lebensweltorientierte Erkundungen wie Stadtteilbegehungen, subjektive Landkarten oder ähnliches
-                        <li>Herstellung von Medien wie Clubzeitung, Jugendkiezzeitung, Videos, Blogs oder ähnlichem
-                        <li>Präsentation gelungener Beteiligungsprojekte durch die Fachkräfte
-                        <li>Information der Besucher*innen über politische Einflussmöglichkeiten
-                        <li>Kontakt zum Kinder- und Jugendparlament
-                        <li>Eigene Delegierte im Kinder- und Jugendparlament
-                        <li>Besuche von Orten politischer Entscheidungen (z.B. BVV, Bundestag) bei gegebenen Anlässen
-                        <li>Diskussion von politischen Entscheidungen mit den Besucher*innen
-                    </ul>
-                </div>
-                <div class="col-2 col-sm-3 item-selection" style="text-align: right">
-                    <input class="form-check-input" type="radio" name="q1-5"
-                           value="1" title="Lehnen wir ab" />
-                    <input class="form-check-input" type="radio" name="q1-5"
-                           value="2" title="Für uns nicht möglich" />
-                    <input class="form-check-input" type="radio" name="q1-5"
-                           value="3" title="Gibt es noch nicht, ist geplant" />
-                    <input class="form-check-input" type="radio" name="q1-5"
-                           value="4" title="Machen wir gelegentlich" />
-                    <input class="form-check-input" type="radio" name="q1-5"
-                           value="5" title="Machen wir regelmäßig" />
-                </div>
-                <div class="col-2">
-                    <input class="form-control" type="text"
-                           name="q1-5-comment" title="Ergänzender Kommentar" />
-                </div>
-            </div>
-        </div>
-        <div class="question" id="q2">
+        <div class="question" id="q1">
             <div class="row">
                 <div class="col-5">
-                    <strong>Frage 2: Was passiert mit den Ergebnissen von Beteiligungsprozessen?</strong>
+                    <strong>Frage 1: Welche Formen der Beteiligung und Selbstorganisation gibt es in Eurer
+                        Einrichtung?</strong><br/>
+                    <span class="form-text">Bitte wählt für jede Form der Beteiligung/Selbstorganisation aus, was am ehesten auf den Stand in Eurer Einrichtung zutrifft.
+                            Wenn Ihr die Beteiligungsform <em>ablehnt</em> oder sie <em>regelmäßig</em> nutzt, gebt in der Kommentarspalte gerne die Begründung bzw. den Turnus an. Auch darüber hinaus könnt Ihr gern Kommentare nutzen.</span>
                 </div>
                 <div class="col-1" style="font-size: 10pt; text-align: center;">Lehnen wir ab</div>
                 <div class="col-1" style="font-size: 10pt; text-align: center;">Für uns nicht möglich</div>
@@ -209,190 +71,2109 @@
                     Kommentar (optional)
                 </div>
             </div>
+            <!-- Vollversammlungen, Plenum für alle Besucher*innen ohne Delegation -->
+            <div class="row item">
+                <div class="col-5" title="Vollversammlungen, Plenum für alle Besucher*innen ohne Delegation">
+                    Vollversammlungen, Plenum für alle Besucher*innen ohne Delegation
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-1"
+                                                                      value="1"
+                                                                      title="Vollversammlungen: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-1"
+                                                                      value="2"
+                                                                      title="Vollversammlungen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-1"
+                                                                      value="3"
+                                                                      title="Vollversammlungen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-1"
+                                                                      value="4"
+                                                                      title="Vollversammlungen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-1"
+                                                                      value="5"
+                                                                      title="Vollversammlungen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-1-comment"
+                                          title="Kommentar zu Vollversammlungen"/></div>
+            </div>
+            <!-- Barcamps -->
+            <div class="row item">
+                <div class="col-5" title="Barcamps">
+                    Barcamps
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-2"
+                                                                      value="1" title="Barcamps: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-2"
+                                                                      value="2"
+                                                                      title="Barcamps: Für uns nicht möglich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-2"
+                                                                      value="3"
+                                                                      title="Barcamps: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-2"
+                                                                      value="4"
+                                                                      title="Barcamps: Machen wir gelegentlich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-2"
+                                                                      value="5"
+                                                                      title="Barcamps: Machen wir regelmäßig"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-2-comment"
+                                          title="Kommentar zu Barcamps"/></div>
+            </div>
+            <!-- Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher*innen -->
+            <div class="row item">
+                <div class="col-5" title="Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher*innen">
+                    Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher*innen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-3"
+                                                                      value="1"
+                                                                      title="Club-/Zentrumsrat: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-3"
+                                                                      value="2"
+                                                                      title="Club-/Zentrumsrat: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-3"
+                                                                      value="3"
+                                                                      title="Club-/Zentrumsrat: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-3"
+                                                                      value="4"
+                                                                      title="Club-/Zentrumsrat: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-3"
+                                                                      value="5"
+                                                                      title="Club-/Zentrumsrat: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-3-comment"
+                                          title="Kommentar zu Club-/Zentrumsrat"/></div>
+            </div>
+            <!-- Vertretungen einzelner Angebote, z.B. Band-Rat, Werkstatt-Rat -->
+            <div class="row item">
+                <div class="col-5" title="Vertretungen einzelner Angebote, z.B. Band-Rat, Werkstatt-Rat">
+                    Vertretungen einzelner Angebote, z. B. Band-Rat, Werkstatt-Rat
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-4"
+                                                                      value="1"
+                                                                      title="Vertretungen einzelner Angebote: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-4"
+                                                                      value="2"
+                                                                      title="Vertretungen einzelner Angebote: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-4"
+                                                                      value="3"
+                                                                      title="Vertretungen einzelner Angebote: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-4"
+                                                                      value="4"
+                                                                      title="Vertretungen einzelner Angebote: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-4"
+                                                                      value="5"
+                                                                      title="Vertretungen einzelner Angebote: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-4-comment"
+                                          title="Kommentar zu Vertretungen einzelner Angebote"/></div>
+            </div>
+            <!-- Jugendgruppen, die weitgehend selbstorganisiert Angebote in der Einrichtung planen und durchführen -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Jugendgruppen, die weitgehend selbstorganisiert Angebote in der Einrichtung planen und durchführen">
+                    Jugendgruppen, die weitgehend selbstorganisiert Angebote in der Einrichtung planen und durchführen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-5"
+                                                                      value="1" title="Jugendgruppen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-5"
+                                                                      value="2"
+                                                                      title="Jugendgruppen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-5"
+                                                                      value="3"
+                                                                      title="Jugendgruppen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-5"
+                                                                      value="4"
+                                                                      title="Jugendgruppen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-5"
+                                                                      value="5"
+                                                                      title="Jugendgruppen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-5-comment"
+                                          title="Kommentar zu Jugendgruppen"/></div>
+            </div>
+            <!-- Angebote von Peer-Helper*innen oder Jugendgruppenleiter*innen (mit Juleica) durchgeführt werden -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Angebote von Peer-Helper*innen oder Jugendgruppenleiter*innen (mit Juleica) durchgeführt werden">
+                    Angebote von Peer-Helper*innen oder Jugendgruppenleiter*innen (mit Juleica) durchgeführt werden
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-6"
+                                                                      value="1" title="Peer-Angebote: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-6"
+                                                                      value="2"
+                                                                      title="Peer-Angebote: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-6"
+                                                                      value="3"
+                                                                      title="Peer-Angebote: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-6"
+                                                                      value="4"
+                                                                      title="Peer-Angebote: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-6"
+                                                                      value="5"
+                                                                      title="Peer-Angebote: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-6-comment"
+                                          title="Kommentar zu Peer-Angeboten"/></div>
+            </div>
+            <!-- Feste Ansprechperson für junge Ehrenamtliche und Jugendinitiativen -->
+            <div class="row item">
+                <div class="col-5" title="Feste Ansprechperson für junge Ehrenamtliche und Jugendinitiativen">
+                    Feste Ansprechperson für junge Ehrenamtliche und Jugendinitiativen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-7"
+                                                                      value="1"
+                                                                      title="Ansprechperson Ehrenamt: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-7"
+                                                                      value="2"
+                                                                      title="Ansprechperson Ehrenamt: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-7"
+                                                                      value="3"
+                                                                      title="Ansprechperson Ehrenamt: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-7"
+                                                                      value="4"
+                                                                      title="Ansprechperson Ehrenamt: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-7"
+                                                                      value="5"
+                                                                      title="Ansprechperson Ehrenamt: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-7-comment"
+                                          title="Kommentar zu Ansprechperson Ehrenamt"/></div>
+            </div>
+            <!-- Fachkraft in der Einrichtung mit besonderem Schwerpunkt auf Kinder- und Jugendbeteiligung -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Fachkraft in der Einrichtung mit besonderem Schwerpunkt auf Kinder- und Jugendbeteiligung">
+                    Fachkraft in der Einrichtung mit besonderem Schwerpunkt auf Kinder- und Jugendbeteiligung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-8"
+                                                                      value="1"
+                                                                      title="Fachkraft Beteiligung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-8"
+                                                                      value="2"
+                                                                      title="Fachkraft Beteiligung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-8"
+                                                                      value="3"
+                                                                      title="Fachkraft Beteiligung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-8"
+                                                                      value="4"
+                                                                      title="Fachkraft Beteiligung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-8"
+                                                                      value="5"
+                                                                      title="Fachkraft Beteiligung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-8-comment"
+                                          title="Kommentar zu Fachkraft Beteiligung"/></div>
+            </div>
+            <!-- Kummer- oder Wunschkasten, Wunsch-Pinnwand oder ähnliches -->
+            <div class="row item">
+                <div class="col-5" title="Kummer- oder Wunschkasten, Wunsch-Pinnwand oder ähnliches">
+                    Kummer- oder Wunschkasten, Wunsch-Pinnwand oder ähnliches
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-9"
+                                                                      value="1"
+                                                                      title="Kummer/Wunschkasten: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-9"
+                                                                      value="2"
+                                                                      title="Kummer/Wunschkasten: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-9"
+                                                                      value="3"
+                                                                      title="Kummer/Wunschkasten: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-9"
+                                                                      value="4"
+                                                                      title="Kummer/Wunschkasten: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-9"
+                                                                      value="5"
+                                                                      title="Kummer/Wunschkasten: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-9-comment"
+                                          title="Kommentar zu Kummer/Wunschkasten"/></div>
+            </div>
+            <!-- Beschwerdekasten mit externer Auswertung -->
+            <div class="row item">
+                <div class="col-5" title="Beschwerdekasten mit externer Auswertung">
+                    Beschwerdekasten mit externer Auswertung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-10"
+                                                                      value="1"
+                                                                      title="Beschwerdekasten (extern): Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-10"
+                                                                      value="2"
+                                                                      title="Beschwerdekasten (extern): Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-10"
+                                                                      value="3"
+                                                                      title="Beschwerdekasten (extern): Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-10"
+                                                                      value="4"
+                                                                      title="Beschwerdekasten (extern): Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-10"
+                                                                      value="5"
+                                                                      title="Beschwerdekasten (extern): Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-10-comment"
+                                          title="Kommentar zu Beschwerdekasten (extern)"/></div>
+            </div>
+            <!-- Standardisierte Befragungen der Besucher*innen, z.B. mit Fragebögen -->
+            <div class="row item">
+                <div class="col-5" title="Standardisierte Befragungen der Besucher*innen, z.B. mit Fragebögen">
+                    Standardisierte Befragungen der Besucher*innen, z. B. mit Fragebögen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-11"
+                                                                      value="1"
+                                                                      title="Standardisierte Befragung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-11"
+                                                                      value="2"
+                                                                      title="Standardisierte Befragung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-11"
+                                                                      value="3"
+                                                                      title="Standardisierte Befragung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-11"
+                                                                      value="4"
+                                                                      title="Standardisierte Befragung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-11"
+                                                                      value="5"
+                                                                      title="Standardisierte Befragung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-11-comment"
+                                          title="Kommentar zu Standardisierte Befragung"/></div>
+            </div>
+            <!-- Teilnahme von Besucher*innen an Teambesprechungen -->
+            <div class="row item">
+                <div class="col-5" title="Teilnahme von Besucher*innen an Teambesprechungen">
+                    Teilnahme von Besucher*innen an Teambesprechungen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-12"
+                                                                      value="1"
+                                                                      title="Teilnahme Teambesprechung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-12"
+                                                                      value="2"
+                                                                      title="Teilnahme Teambesprechung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-12"
+                                                                      value="3"
+                                                                      title="Teilnahme Teambesprechung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-12"
+                                                                      value="4"
+                                                                      title="Teilnahme Teambesprechung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-12"
+                                                                      value="5"
+                                                                      title="Teilnahme Teambesprechung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-12-comment"
+                                          title="Kommentar zu Teilnahme Teambesprechung"/></div>
+            </div>
+            <!-- Evaluierung/Audit der Einrichtung durch die Besucher*innen -->
+            <div class="row item">
+                <div class="col-5" title="Evaluierung/Audit der Einrichtung durch die Besucher*innen">
+                    Evaluierung/Audit der Einrichtung durch die Besucher*innen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-13"
+                                                                      value="1"
+                                                                      title="Evaluierung/Audit: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-13"
+                                                                      value="2"
+                                                                      title="Evaluierung/Audit: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-13"
+                                                                      value="3"
+                                                                      title="Evaluierung/Audit: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-13"
+                                                                      value="4"
+                                                                      title="Evaluierung/Audit: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-13"
+                                                                      value="5"
+                                                                      title="Evaluierung/Audit: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-13-comment"
+                                          title="Kommentar zu Evaluierung/Audit"/></div>
+            </div>
+            <!-- Eigene Projekte der Besucher*innen, die z.B. über die Jugendjury finanziert werden -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Eigene Projekte der Besucher*innen, die z.B. über die Jugendjury finanziert werden">
+                    Eigene Projekte der Besucher*innen, die z. B. über die Jugendjury finanziert werden
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-14"
+                                                                      value="1"
+                                                                      title="Projekte/Jugendjury: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-14"
+                                                                      value="2"
+                                                                      title="Projekte/Jugendjury: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-14"
+                                                                      value="3"
+                                                                      title="Projekte/Jugendjury: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-14"
+                                                                      value="4"
+                                                                      title="Projekte/Jugendjury: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-14"
+                                                                      value="5"
+                                                                      title="Projekte/Jugendjury: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-14-comment"
+                                          title="Kommentar zu Projekte/Jugendjury"/></div>
+            </div>
+            <!-- Ferienprojekte zur Kinder- und Jugendbeteiligung -->
+            <div class="row item">
+                <div class="col-5" title="Ferienprojekte zur Kinder- und Jugendbeteiligung">
+                    Ferienprojekte zur Kinder- und Jugendbeteiligung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-15"
+                                                                      value="1"
+                                                                      title="Ferienprojekte Beteiligung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-15"
+                                                                      value="2"
+                                                                      title="Ferienprojekte Beteiligung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-15"
+                                                                      value="3"
+                                                                      title="Ferienprojekte Beteiligung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-15"
+                                                                      value="4"
+                                                                      title="Ferienprojekte Beteiligung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-15"
+                                                                      value="5"
+                                                                      title="Ferienprojekte Beteiligung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-15-comment"
+                                          title="Kommentar zu Ferienprojekte Beteiligung"/></div>
+            </div>
+            <!-- sozialraum- und lebensweltorientierte Erkundungen wie Stadtteilbegehungen, subjektive Landkarten oder ähnliches -->
+            <div class="row item">
+                <div class="col-5"
+                     title="sozialraum- und lebensweltorientierte Erkundungen wie Stadtteilbegehungen, subjektive Landkarten oder ähnliches">
+                    sozialraum- und lebensweltorientierte Erkundungen wie Stadtteilbegehungen, subjektive Landkarten
+                    oder ähnliches
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-16"
+                                                                      value="1"
+                                                                      title="Sozialraum-Erkundungen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-16"
+                                                                      value="2"
+                                                                      title="Sozialraum-Erkundungen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-16"
+                                                                      value="3"
+                                                                      title="Sozialraum-Erkundungen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-16"
+                                                                      value="4"
+                                                                      title="Sozialraum-Erkundungen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-16"
+                                                                      value="5"
+                                                                      title="Sozialraum-Erkundungen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-16-comment"
+                                          title="Kommentar zu Sozialraum-Erkundungen"/></div>
+            </div>
+            <!-- Herstellung von Medien wie Clubzeitung, Jugendkiezzeitung, Videos, Blogs oder ähnlichem -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Herstellung von Medien wie Clubzeitung, Jugendkiezzeitung, Videos, Blogs oder ähnlichem">
+                    Herstellung von Medien wie Clubzeitung, Jugendkiezzeitung, Videos, Blogs oder ähnlichem
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-17"
+                                                                      value="1" title="Medienprojekte: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-17"
+                                                                      value="2"
+                                                                      title="Medienprojekte: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-17"
+                                                                      value="3"
+                                                                      title="Medienprojekte: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-17"
+                                                                      value="4"
+                                                                      title="Medienprojekte: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-17"
+                                                                      value="5"
+                                                                      title="Medienprojekte: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-17-comment"
+                                          title="Kommentar zu Medienprojekte"/></div>
+            </div>
+            <!-- Präsentation gelungener Beteiligungsprojekte durch die Fachkräfte -->
+            <div class="row item">
+                <div class="col-5" title="Präsentation gelungener Beteiligungsprojekte durch die Fachkräfte">
+                    Präsentation gelungener Beteiligungsprojekte durch die Fachkräfte
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-18"
+                                                                      value="1"
+                                                                      title="Präsentation Projekte: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-18"
+                                                                      value="2"
+                                                                      title="Präsentation Projekte: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-18"
+                                                                      value="3"
+                                                                      title="Präsentation Projekte: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-18"
+                                                                      value="4"
+                                                                      title="Präsentation Projekte: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-18"
+                                                                      value="5"
+                                                                      title="Präsentation Projekte: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-18-comment"
+                                          title="Kommentar zu Präsentation Projekte"/></div>
+            </div>
+            <!-- Information der Besucher*innen über politische Einflussmöglichkeiten -->
+            <div class="row item">
+                <div class="col-5" title="Information der Besucher*innen über politische Einflussmöglichkeiten">
+                    Information der Besucher*innen über politische Einflussmöglichkeiten
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-19"
+                                                                      value="1"
+                                                                      title="Info Einflussmöglichkeiten: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-19"
+                                                                      value="2"
+                                                                      title="Info Einflussmöglichkeiten: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-19"
+                                                                      value="3"
+                                                                      title="Info Einflussmöglichkeiten: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-19"
+                                                                      value="4"
+                                                                      title="Info Einflussmöglichkeiten: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-19"
+                                                                      value="5"
+                                                                      title="Info Einflussmöglichkeiten: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-19-comment"
+                                          title="Kommentar zu Info Einflussmöglichkeiten"/></div>
+            </div>
+            <!-- Kontakt zum Kinder- und Jugendparlament -->
+            <div class="row item">
+                <div class="col-5" title="Kontakt zum Kinder- und Jugendparlament">
+                    Kontakt zum Kinder- und Jugendparlament
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-20"
+                                                                      value="1" title="Kontakt KJP: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-20"
+                                                                      value="2"
+                                                                      title="Kontakt KJP: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-20"
+                                                                      value="3"
+                                                                      title="Kontakt KJP: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-20"
+                                                                      value="4"
+                                                                      title="Kontakt KJP: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-20"
+                                                                      value="5"
+                                                                      title="Kontakt KJP: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-20-comment"
+                                          title="Kommentar zu Kontakt KJP"/></div>
+            </div>
+            <!-- Eigene Delegierte im Kinder- und Jugendparlament -->
+            <div class="row item">
+                <div class="col-5" title="Eigene Delegierte im Kinder- und Jugendparlament">
+                    Eigene Delegierte im Kinder- und Jugendparlament
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-21"
+                                                                      value="1" title="Delegierte KJP: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-21"
+                                                                      value="2"
+                                                                      title="Delegierte KJP: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-21"
+                                                                      value="3"
+                                                                      title="Delegierte KJP: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-21"
+                                                                      value="4"
+                                                                      title="Delegierte KJP: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-21"
+                                                                      value="5"
+                                                                      title="Delegierte KJP: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-21-comment"
+                                          title="Kommentar zu Delegierte KJP"/></div>
+            </div>
+            <!-- Besuche von Orten politischer Entscheidungen (z.B. BVV, Bundestag) bei gegebenen Anlässen -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Besuche von Orten politischer Entscheidungen (z.B. BVV, Bundestag) bei gegebenen Anlässen">
+                    Besuche von Orten politischer Entscheidungen (z.B. BVV, Bundestag) bei gegebenen Anlässen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-22"
+                                                                      value="1"
+                                                                      title="Besuche polit. Orte: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-22"
+                                                                      value="2"
+                                                                      title="Besuche polit. Orte: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-22"
+                                                                      value="3"
+                                                                      title="Besuche polit. Orte: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-22"
+                                                                      value="4"
+                                                                      title="Besuche polit. Orte: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-22"
+                                                                      value="5"
+                                                                      title="Besuche polit. Orte: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-22-comment"
+                                          title="Kommentar zu Besuche polit. Orte"/></div>
+            </div>
+            <!-- Diskussion von politischen Entscheidungen mit den Besucher*innen -->
+            <div class="row item">
+                <div class="col-5" title="Diskussion von politischen Entscheidungen mit den Besucher*innen">
+                    Diskussion von politischen Entscheidungen mit den Besucher*innen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-23"
+                                                                      value="1"
+                                                                      title="Diskussion polit. Entscheidungen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-23"
+                                                                      value="2"
+                                                                      title="Diskussion polit. Entscheidungen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-23"
+                                                                      value="3"
+                                                                      title="Diskussion polit. Entscheidungen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-23"
+                                                                      value="4"
+                                                                      title="Diskussion polit. Entscheidungen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q1-23"
+                                                                      value="5"
+                                                                      title="Diskussion polit. Entscheidungen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q1-23-comment"
+                                          title="Kommentar zu Diskussion polit. Entscheidungen"/></div>
+            </div>
+        </div>
+        <div class="question" id="q2">
             <div class="row">
                 <div class="col-5">
-                    <ul>
-                        <li>Die Ergebnisse werden im Team besprochen
-                        <li>Die Ergebnisse sind Grundlage für die inhaltliche Planung von Angeboten
-                        <li>Die Ergebnisse sind Grundlage für die Finanzplanung der Einrichtung
-                        <li>Aushänge informieren die Besucher*innen über den Stand der Umsetzung ihrer Bedarfe und Wünsche
-                        <li>Im Gespräch mit den Besucher*innen wird die Umsetzung der Bedarfe und Wünsche thematisiert
-                        <li>Möglichkeiten politischer Teilhabe zur Umsetzung von Bedarfen und Wünschen werden thematisiert
-                        <li>Die Ergebnisse dienen als Grundlage zur Planung weiterer Beteiligungsprozesse
-                    </ul>
+                    <strong>Frage 2: Was passiert mit den Ergebnissen von Beteiligungsprozessen?</strong><br/>
+                    <span class="form-text">
+                        Bitte wählt für jede Aussage aus, was am ehesten auf Eure Einrichtung zutrifft. Nutzt die Kommentarspalte gern für Erläuterungen oder Beispiele.
+                    </span>
+
                 </div>
-                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1" value="1" title="Lehnen wir ab" /></div>
-                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1" value="2" title="Für uns nicht möglich" /></div>
-                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1" value="3" title="Gibt es noch nicht, ist geplant" /></div>
-                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1" value="4" title="Machen wir gelegentlich" /></div>
-                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1" value="5" title="Machen wir regelmäßig" /></div>
-                <div class="col-2">
-                    <input class="form-control" type="text" name="q2-1-comment" title="Ergänzender Kommentar" />
-                </div>
-            </div>
-        </div>
-        <div class="question" id="q3">
-            <div class="row">
-                <div class="col-9 col-md-8 col-sm 7">
-                    <strong>Frage 3: Auf welche Ressourcen greift Ihr zurück, um Beteiligung umzusetzen?</strong>
-                </div>
-                <div class="col-1 col-md-2 col-sm-3 legend-vertical">
-                    Machen wir regelmäßig<br/>
-                    Machen wir gelegentlich<br/>
-                    Gibt es noch nicht, ist geplant<br/>
-                    Für uns nicht möglich<br/>
-                    Lehnen wir ab
-                </div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Lehnen wir ab</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Für uns nicht möglich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Gibt es noch nicht, ist geplant</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir gelegentlich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir regelmäßig</div>
                 <div class="col-2" style="vertical-align: text-bottom;">
                     Kommentar (optional)
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <ul>
-                        <li>Beteiligungskonzept der Einrichtung/des Trägers</li>
-                        <li>Know-how der Fachkräfte in der Einrichtung</li>
-                        <li>Nutzung des QM-Handbuchs</li>
-                        <li>Ansprechpersonen im Kinder- und Jugendbüro</li>
-                        <li>Fortbildungen</li>
-                        <li>Qualifizierunen (z.&nbsp;B. Moderator*in für Kinder- und Jugendbeteiligung)</li>
-                        <li>Austausch in Fachgremien (z&nbsp;B. AK Partizipation)</li>
-                        <li>Netzwerk- und Kooperationspartner*innen</li>
-                        <li>Methoden aus dem Internet</li>
-                        <li>Methoden aus Fachliteratur</li>
-                    </ul>
+            <div class="row item">
+                <div class="col-5" title="Die Ergebnisse werden im Team besprochen">
+                    Die Ergebnisse werden im Team besprochen
                 </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1"
+                                                                      value="1"
+                                                                      title="Team-Besprechung: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1"
+                                                                      value="2"
+                                                                      title="Team-Besprechung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1"
+                                                                      value="3"
+                                                                      title="Team-Besprechung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1"
+                                                                      value="4"
+                                                                      title="Team-Besprechung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-1"
+                                                                      value="5"
+                                                                      title="Team-Besprechung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-1-comment"
+                                          title="Kommentar zur Team-Besprechung"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Die Ergebnisse sind Grundlage für die inhaltliche Planung von Angeboten">
+                    Die Ergebnisse sind Grundlage für die inhaltliche Planung von Angeboten
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-2"
+                                                                      value="1"
+                                                                      title="Inhaltliche Planung: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-2"
+                                                                      value="2"
+                                                                      title="Inhaltliche Planung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-2"
+                                                                      value="3"
+                                                                      title="Inhaltliche Planung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-2"
+                                                                      value="4"
+                                                                      title="Inhaltliche Planung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-2"
+                                                                      value="5"
+                                                                      title="Inhaltliche Planung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-2-comment"
+                                          title="Kommentar zu inhaltlicher Planung"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Die Ergebnisse sind Grundlage für die Finanzplanung der Einrichtung">
+                    Die Ergebnisse sind Grundlage für die Finanzplanung der Einrichtung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-3"
+                                                                      value="1" title="Finanzplanung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-3"
+                                                                      value="2"
+                                                                      title="Finanzplanung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-3"
+                                                                      value="3"
+                                                                      title="Finanzplanung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-3"
+                                                                      value="4"
+                                                                      title="Finanzplanung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-3"
+                                                                      value="5"
+                                                                      title="Finanzplanung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-3-comment"
+                                          title="Kommentar zu Finanzplanung"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5"
+                     title="Aushänge informieren die Besucher*innen über den Stand der Umsetzung ihrer Bedarfe und Wünsche">
+                    Aushänge informieren die Besucher*innen über den Stand der Umsetzung ihrer Bedarfe und Wünsche
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-4"
+                                                                      value="1" title="Aushänge: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-4"
+                                                                      value="2"
+                                                                      title="Aushänge: Für uns nicht möglich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-4"
+                                                                      value="3"
+                                                                      title="Aushänge: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-4"
+                                                                      value="4"
+                                                                      title="Aushänge: Machen wir gelegentlich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-4"
+                                                                      value="5"
+                                                                      title="Aushänge: Machen wir regelmäßig"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-4-comment"
+                                          title="Kommentar zu Aushängen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5"
+                     title="Im Gespräch mit den Besucher*innen wird die Umsetzung der Bedarfe und Wünsche thematisiert">
+                    Im Gespräch mit den Besucher*innen wird die Umsetzung der Bedarfe und Wünsche thematisiert
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-5"
+                                                                      value="1"
+                                                                      title="Umsetzung im Gespräch: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-5"
+                                                                      value="2"
+                                                                      title="Umsetzung im Gespräch: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-5"
+                                                                      value="3"
+                                                                      title="Umsetzung im Gespräch: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-5"
+                                                                      value="4"
+                                                                      title="Umsetzung im Gespräch: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-5"
+                                                                      value="5"
+                                                                      title="Umsetzung im Gespräch: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-5-comment"
+                                          title="Kommentar zu Gesprächen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5"
+                     title="Möglichkeiten politischer Teilhabe zur Umsetzung von Bedarfen und Wünschen werden thematisiert">
+                    Möglichkeiten politischer Teilhabe zur Umsetzung von Bedarfen und Wünschen werden thematisiert
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-6"
+                                                                      value="1"
+                                                                      title="Politische Teilhabe: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-6"
+                                                                      value="2"
+                                                                      title="Politische Teilhabe: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-6"
+                                                                      value="3"
+                                                                      title="Politische Teilhabe: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-6"
+                                                                      value="4"
+                                                                      title="Politische Teilhabe: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-6"
+                                                                      value="5"
+                                                                      title="Politische Teilhabe: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-6-comment"
+                                          title="Kommentar zu politischer Teilhabe"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5"
+                     title="Die Ergebnisse dienen als Grundlage zur Planung weiterer Beteiligungsprozesse">
+                    Die Ergebnisse dienen als Grundlage zur Planung weiterer Beteiligungsprozesse
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-7"
+                                                                      value="1"
+                                                                      title="Planung nach Beteiligung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-7"
+                                                                      value="2"
+                                                                      title="Planung nach Beteiligung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-7"
+                                                                      value="3"
+                                                                      title="Planung nach Beteiligung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-7"
+                                                                      value="4"
+                                                                      title="Planung nach Beteiligung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q2-7"
+                                                                      value="5"
+                                                                      title="Planung nach Beteiligung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q2-7-comment"
+                                          title="Kommentar zu Planung nach Beteiligung"/></div>
             </div>
         </div>
         <div class="question" id="q3">
             <div class="row">
-                <div class="col-9 col-md-8 col-sm 7">
+                <div class="col-5">
+                    <strong>Frage 3: Auf welche Ressourcen greift Ihr zurück, um Beteiligung umzusetzen?</strong><br/>
+                    <span class="form-text">
+                        Bitte wählt für jede Ressource aus, was am ehesten auf Eure Einrichtung zutrifft. Ergänzt gern im Kommentarbereich, wie die Ressource genutzt wird oder weitere Anmerkungen.
+                    </span>
+                </div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Lehnen wir ab</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Für uns nicht möglich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Gibt es noch nicht, ist geplant</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir gelegentlich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir regelmäßig</div>
+                <div class="col-2" style="vertical-align: text-bottom;">
+                    Kommentar (optional)
+                </div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Beteiligungskonzept der Einrichtung/des Trägers">
+                    Beteiligungskonzept der Einrichtung/des Trägers
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-1"
+                                                                      value="1"
+                                                                      title="Beteiligungskonzept: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-1"
+                                                                      value="2"
+                                                                      title="Beteiligungskonzept: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-1"
+                                                                      value="3"
+                                                                      title="Beteiligungskonzept: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-1"
+                                                                      value="4"
+                                                                      title="Beteiligungskonzept: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-1"
+                                                                      value="5"
+                                                                      title="Beteiligungskonzept: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-1-comment"
+                                          title="Kommentar zu Beteiligungskonzept"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Know-how der Fachkräfte in der Einrichtung">
+                    Know-how der Fachkräfte in der Einrichtung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-2"
+                                                                      value="1" title="Know-how: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-2"
+                                                                      value="2"
+                                                                      title="Know-how: Für uns nicht möglich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-2"
+                                                                      value="3"
+                                                                      title="Know-how: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-2"
+                                                                      value="4"
+                                                                      title="Know-how: Nutzen wir gelegentlich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-2"
+                                                                      value="5"
+                                                                      title="Know-how: Nutzen wir regelmäßig"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-2-comment"
+                                          title="Kommentar zu Know-how"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Nutzung des QM-Handbuchs">
+                    Nutzung des QM-Handbuchs
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-3"
+                                                                      value="1" title="QM-Handbuch: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-3"
+                                                                      value="2"
+                                                                      title="QM-Handbuch: Für uns nicht möglich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-3"
+                                                                      value="3"
+                                                                      title="QM-Handbuch: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-3"
+                                                                      value="4"
+                                                                      title="QM-Handbuch: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-3"
+                                                                      value="5"
+                                                                      title="QM-Handbuch: Nutzen wir regelmäßig"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-3-comment"
+                                          title="Kommentar zu QM-Handbuch"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Ansprechpersonen im Kinder- und Jugendbüro">
+                    Ansprechpersonen im Kinder- und Jugendbüro
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-4"
+                                                                      value="1"
+                                                                      title="Ansprechpersonen KJB: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-4"
+                                                                      value="2"
+                                                                      title="Ansprechpersonen KJB: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-4"
+                                                                      value="3"
+                                                                      title="Ansprechpersonen KJB: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-4"
+                                                                      value="4"
+                                                                      title="Ansprechpersonen KJB: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-4"
+                                                                      value="5"
+                                                                      title="Ansprechpersonen KJB: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-4-comment"
+                                          title="Kommentar zu KJB"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Fortbildungen">
+                    Fortbildungen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-5"
+                                                                      value="1" title="Fortbildungen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-5"
+                                                                      value="2"
+                                                                      title="Fortbildungen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-5"
+                                                                      value="3"
+                                                                      title="Fortbildungen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-5"
+                                                                      value="4"
+                                                                      title="Fortbildungen: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-5"
+                                                                      value="5"
+                                                                      title="Fortbildungen: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-5-comment"
+                                          title="Kommentar zu Fortbildungen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Qualifizierungen (z.B. Moderator*in für Kinder- und Jugendbeteiligung)">
+                    Qualifizierungen (z. B. Moderator*in für Kinder- und Jugendbeteiligung)
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-6"
+                                                                      value="1"
+                                                                      title="Qualifizierungen: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-6"
+                                                                      value="2"
+                                                                      title="Qualifizierungen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-6"
+                                                                      value="3"
+                                                                      title="Qualifizierungen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-6"
+                                                                      value="4"
+                                                                      title="Qualifizierungen: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-6"
+                                                                      value="5"
+                                                                      title="Qualifizierungen: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-6-comment"
+                                          title="Kommentar zu Qualifizierungen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Austausch in Fachgremien (z.B. AK Partizipation)">
+                    Austausch in Fachgremien (z. B. AK Partizipation)
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-7"
+                                                                      value="1"
+                                                                      title="Austausch Fachgremien: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-7"
+                                                                      value="2"
+                                                                      title="Austausch Fachgremien: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-7"
+                                                                      value="3"
+                                                                      title="Austausch Fachgremien: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-7"
+                                                                      value="4"
+                                                                      title="Austausch Fachgremien: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-7"
+                                                                      value="5"
+                                                                      title="Austausch Fachgremien: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-7-comment"
+                                          title="Kommentar zu Fachgremien"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Netzwerk- und Kooperationspartner*innen">
+                    Netzwerk- und Kooperationspartner*innen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-8"
+                                                                      value="1" title="Netzwerke: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-8"
+                                                                      value="2"
+                                                                      title="Netzwerke: Für uns nicht möglich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-8"
+                                                                      value="3"
+                                                                      title="Netzwerke: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-8"
+                                                                      value="4"
+                                                                      title="Netzwerke: Nutzen wir gelegentlich"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-8"
+                                                                      value="5"
+                                                                      title="Netzwerke: Nutzen wir regelmäßig"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-8-comment"
+                                          title="Kommentar zu Netzwerken"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Methoden aus dem Internet">
+                    Methoden aus dem Internet
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-9"
+                                                                      value="1"
+                                                                      title="Internetmethoden: Lehnen wir ab"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-9"
+                                                                      value="2"
+                                                                      title="Internetmethoden: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-9"
+                                                                      value="3"
+                                                                      title="Internetmethoden: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-9"
+                                                                      value="4"
+                                                                      title="Internetmethoden: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-9"
+                                                                      value="5"
+                                                                      title="Internetmethoden: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-9-comment"
+                                          title="Kommentar zu Internetmethoden"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Methoden aus Fachliteratur">
+                    Methoden aus Fachliteratur
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-10"
+                                                                      value="1" title="Fachliteratur: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-10"
+                                                                      value="2"
+                                                                      title="Fachliteratur: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-10"
+                                                                      value="3"
+                                                                      title="Fachliteratur: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-10"
+                                                                      value="4"
+                                                                      title="Fachliteratur: Nutzen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q3-10"
+                                                                      value="5"
+                                                                      title="Fachliteratur: Nutzen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q3-10-comment"
+                                          title="Kommentar zu Fachliteratur"/></div>
+            </div>
+        </div>
+        <div class="question" id="q4">
+            <div class="row">
+                <div class="col-5">
                     <strong>Frage 4: Welche Hürden erschweren Beteiligung im Einrichtungsalltag?</strong>
                 </div>
-                <div class="col-1 col-md-2 col-sm-3 legend-vertical">
-                    (fast) immer<br/>
-                    häufig<br/>
-                    manchmal<br/>
-                    selten<br/>
-                    gar nicht
-                </div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">gar nicht</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">selten</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">manchmal</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">häufig</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">(fast) immer</div>
                 <div class="col-2" style="vertical-align: text-bottom;">
                     Kommentar (optional)
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <ul>
-                        <li>unstete Teilnahme</li>
-                        <li>fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen</li>
-                        <li>fehlende Verbindlichkeit</li>
-                        <li>fehlende Rückläufe/keine sichtbaren Ergebnisse</li>
-                        <li>Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume</li>
-                        <li>fehlendes Methodenwissen</li>
-                        <li>unterschiedliche Haltungen zu Beteiligung innerhalb des Teams</li>
-                        <li>fehlende Motivation</li>
-                        <li>fehlende Unterstützung durch Fachstellen</li>
-                    </ul>
+            <div class="row item">
+                <div class="col-5">
+                    unstete Teilnahme
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q4-1"
+                                                                      value="1" title="unstete Teilnahme: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q4-1"
+                                                                      value="2" title="unstete Teilnahme: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q4-1"
+                                                                      value="3" title="unstete Teilnahme: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q4-1"
+                                                                      value="4" title="unstete Teilnahme: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q4-1"
+                                                                      value="5"
+                                                                      title="unstete Teilnahme: (fast) immer"/></div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-1-comment"
+                           title="Ergänzender Kommentar zu unstete Teilnahme"/>
+                </div>
+            </div>
+            <!-- fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen -->
+            <div class="row item">
+                <div class="col-5">
+                    fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-2" value="1"
+                           title="fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-2" value="2"
+                           title="fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-2" value="3"
+                           title="fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-2" value="4"
+                           title="fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-2" value="5"
+                           title="fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-2-comment"
+                           title="Ergänzender Kommentar zu fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen"/>
+                </div>
+            </div>
+            <!-- fehlende Verbindlichkeit -->
+            <div class="row item">
+                <div class="col-5">
+                    fehlende Verbindlichkeit
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-3" value="1"
+                           title="fehlende Verbindlichkeit: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-3" value="2"
+                           title="fehlende Verbindlichkeit: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-3" value="3"
+                           title="fehlende Verbindlichkeit: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-3" value="4"
+                           title="fehlende Verbindlichkeit: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-3" value="5"
+                           title="fehlende Verbindlichkeit: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-3-comment"
+                           title="Ergänzender Kommentar zu fehlende Verbindlichkeit"/>
+                </div>
+            </div>
+            <!-- fehlende Rückläufe/keine sichtbaren Ergebnisse -->
+            <div class="row item">
+                <div class="col-5">
+                    fehlende Rückläufe/keine sichtbaren Ergebnisse
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-4" value="1"
+                           title="fehlende Rückläufe/keine sichtbaren Ergebnisse: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-4" value="2"
+                           title="fehlende Rückläufe/keine sichtbaren Ergebnisse: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-4" value="3"
+                           title="fehlende Rückläufe/keine sichtbaren Ergebnisse: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-4" value="4"
+                           title="fehlende Rückläufe/keine sichtbaren Ergebnisse: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-4" value="5"
+                           title="fehlende Rückläufe/keine sichtbaren Ergebnisse: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-4-comment"
+                           title="Ergänzender Kommentar zu fehlende Rückläufe/keine sichtbaren Ergebnisse"/>
+                </div>
+            </div>
+            <!-- Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume -->
+            <div class="row item">
+                <div class="col-5">
+                    Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-5" value="1"
+                           title="Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-5" value="2"
+                           title="Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-5" value="3"
+                           title="Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-5" value="4"
+                           title="Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-5" value="5"
+                           title="Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-5-comment"
+                           title="Ergänzender Kommentar zu Unklarheit/Unsicherheit über Befugnisse und Handlungsspielräume"/>
+                </div>
+            </div>
+            <!-- fehlendes Methodenwissen -->
+            <div class="row item">
+                <div class="col-5">
+                    fehlendes Methodenwissen
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-6" value="1"
+                           title="fehlendes Methodenwissen: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-6" value="2"
+                           title="fehlendes Methodenwissen: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-6" value="3"
+                           title="fehlendes Methodenwissen: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-6" value="4"
+                           title="fehlendes Methodenwissen: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-6" value="5"
+                           title="fehlendes Methodenwissen: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-6-comment"
+                           title="Ergänzender Kommentar zu fehlendes Methodenwissen"/>
+                </div>
+            </div>
+            <!-- unterschiedliche Haltungen zu Beteiligung innerhalb des Teams -->
+            <div class="row item">
+                <div class="col-5">
+                    unterschiedliche Haltungen zu Beteiligung innerhalb des Teams
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-7" value="1"
+                           title="unterschiedliche Haltungen zu Beteiligung innerhalb des Teams: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-7" value="2"
+                           title="unterschiedliche Haltungen zu Beteiligung innerhalb des Teams: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-7" value="3"
+                           title="unterschiedliche Haltungen zu Beteiligung innerhalb des Teams: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-7" value="4"
+                           title="unterschiedliche Haltungen zu Beteiligung innerhalb des Teams: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-7" value="5"
+                           title="unterschiedliche Haltungen zu Beteiligung innerhalb des Teams: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-7-comment"
+                           title="Ergänzender Kommentar zu unterschiedliche Haltungen zu Beteiligung innerhalb des Teams"/>
+                </div>
+            </div>
+            <!-- fehlende Motivation -->
+            <div class="row item">
+                <div class="col-5">
+                    fehlende Motivation
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-8" value="1"
+                           title="fehlende Motivation: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-8" value="2"
+                           title="fehlende Motivation: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-8" value="3"
+                           title="fehlende Motivation: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-8" value="4"
+                           title="fehlende Motivation: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-8" value="5"
+                           title="fehlende Motivation: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-8-comment"
+                           title="Ergänzender Kommentar zu fehlende Motivation"/>
+                </div>
+            </div>
+            <!-- fehlende Unterstützung durch Fachstellen -->
+            <div class="row item">
+                <div class="col-5">
+                    fehlende Unterstützung durch Fachstellen
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-9" value="1"
+                           title="fehlende Unterstützung durch Fachstellen: gar nicht"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-9" value="2"
+                           title="fehlende Unterstützung durch Fachstellen: selten"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-9" value="3"
+                           title="fehlende Unterstützung durch Fachstellen: manchmal"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-9" value="4"
+                           title="fehlende Unterstützung durch Fachstellen: häufig"/>
+                </div>
+                <div class="col-1" style="text-align: center;">
+                    <input class="form-check-input" type="radio" name="q4-9" value="5"
+                           title="fehlende Unterstützung durch Fachstellen: (fast) immer"/>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="q4-9-comment"
+                           title="Ergänzender Kommentar zu fehlende Unterstützung durch Fachstellen"/>
                 </div>
             </div>
         </div>
         <div class="question" id="q5">
             <div class="row">
-                <div class="col-9 col-md-8 col-sm 7">
-                    <strong>Frage 5: Welche Aspekte des Einrichtungsalltags bestimmen Besucher*innen mit?</strong>
+                <div class="col-5">
+                    <strong>Frage 5: Welche Aspekte des Einrichtungsalltags bestimmen Besucher*innen mit?</strong><br/>
+                    <span class="form-text">
+                        Bitte für jeden Aspekt angeben, wie häufig und in welchem Maße Besucher*innen beteiligt werden.
+                    </span>
                 </div>
-                <div class="col-1 col-md-2 col-sm-3 legend-vertical">
-                    Machen wir regelmäßig<br/>
-                    Machen wir gelegentlich<br/>
-                    Gibt es noch nicht, ist geplant<br/>
-                    Für uns nicht möglich<br/>
-                    Lehnen wir ab
-                </div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Lehnen wir ab</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Für uns nicht möglich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Gibt es noch nicht, ist geplant</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir gelegentlich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir regelmäßig</div>
                 <div class="col-2" style="vertical-align: text-bottom;">
                     Kommentar (optional)
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <ul>
-                        <li>Schaffung neuer Angebote
-                        <li>Ausgestaltung vorhandener Angebote
-                        <li>Räumliche Gestaltung der Einrichtung
-                        <li>Verwendung der finanziellen Mittel der Einrichtung
-                        <li>Öffnungszeiten der Einrichtung
-                        <li>Auswahl von pädagogischen Fachkräfte
-                        <li>Auswahl von Honorarkräften
-                    </ul>
+            <!-- Schaffung neuer Angebote -->
+            <div class="row item">
+                <div class="col-5" title="Schaffung neuer Angebote">
+                    Schaffung neuer Angebote
                 </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-1"
+                                                                      value="1"
+                                                                      title="Schaffung neuer Angebote: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-1"
+                                                                      value="2"
+                                                                      title="Schaffung neuer Angebote: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-1"
+                                                                      value="3"
+                                                                      title="Schaffung neuer Angebote: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-1"
+                                                                      value="4"
+                                                                      title="Schaffung neuer Angebote: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-1"
+                                                                      value="5"
+                                                                      title="Schaffung neuer Angebote: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-1-comment"
+                                          title="Kommentar zu Schaffung neuer Angebote"/></div>
+            </div>
+            <!-- Ausgestaltung vorhandener Angebote -->
+            <div class="row item">
+                <div class="col-5" title="Ausgestaltung vorhandener Angebote">
+                    Ausgestaltung vorhandener Angebote
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-2"
+                                                                      value="1"
+                                                                      title="Ausgestaltung vorhandener Angebote: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-2"
+                                                                      value="2"
+                                                                      title="Ausgestaltung vorhandener Angebote: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-2"
+                                                                      value="3"
+                                                                      title="Ausgestaltung vorhandener Angebote: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-2"
+                                                                      value="4"
+                                                                      title="Ausgestaltung vorhandener Angebote: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-2"
+                                                                      value="5"
+                                                                      title="Ausgestaltung vorhandener Angebote: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-2-comment"
+                                          title="Kommentar zu Ausgestaltung vorhandener Angebote"/></div>
+            </div>
+            <!-- Räumliche Gestaltung der Einrichtung -->
+            <div class="row item">
+                <div class="col-5" title="Räumliche Gestaltung der Einrichtung">
+                    Räumliche Gestaltung der Einrichtung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-3"
+                                                                      value="1"
+                                                                      title="Räumliche Gestaltung der Einrichtung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-3"
+                                                                      value="2"
+                                                                      title="Räumliche Gestaltung der Einrichtung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-3"
+                                                                      value="3"
+                                                                      title="Räumliche Gestaltung der Einrichtung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-3"
+                                                                      value="4"
+                                                                      title="Räumliche Gestaltung der Einrichtung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-3"
+                                                                      value="5"
+                                                                      title="Räumliche Gestaltung der Einrichtung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-3-comment"
+                                          title="Kommentar zu Räumliche Gestaltung der Einrichtung"/></div>
+            </div>
+            <!-- Verwendung der finanziellen Mittel der Einrichtung -->
+            <div class="row item">
+                <div class="col-5" title="Verwendung der finanziellen Mittel der Einrichtung">
+                    Verwendung der finanziellen Mittel der Einrichtung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-4"
+                                                                      value="1"
+                                                                      title="Verwendung der finanziellen Mittel der Einrichtung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-4"
+                                                                      value="2"
+                                                                      title="Verwendung der finanziellen Mittel der Einrichtung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-4"
+                                                                      value="3"
+                                                                      title="Verwendung der finanziellen Mittel der Einrichtung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-4"
+                                                                      value="4"
+                                                                      title="Verwendung der finanziellen Mittel der Einrichtung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-4"
+                                                                      value="5"
+                                                                      title="Verwendung der finanziellen Mittel der Einrichtung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-4-comment"
+                                          title="Kommentar zu Verwendung der finanziellen Mittel der Einrichtung"/>
+                </div>
+            </div>
+            <!-- Öffnungszeiten der Einrichtung -->
+            <div class="row item">
+                <div class="col-5" title="Öffnungszeiten der Einrichtung">
+                    Öffnungszeiten der Einrichtung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-5"
+                                                                      value="1"
+                                                                      title="Öffnungszeiten der Einrichtung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-5"
+                                                                      value="2"
+                                                                      title="Öffnungszeiten der Einrichtung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-5"
+                                                                      value="3"
+                                                                      title="Öffnungszeiten der Einrichtung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-5"
+                                                                      value="4"
+                                                                      title="Öffnungszeiten der Einrichtung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-5"
+                                                                      value="5"
+                                                                      title="Öffnungszeiten der Einrichtung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-5-comment"
+                                          title="Kommentar zu Öffnungszeiten der Einrichtung"/></div>
+            </div>
+            <!-- Auswahl von pädagogischen Fachkräften -->
+            <div class="row item">
+                <div class="col-5" title="Auswahl von pädagogischen Fachkräften">
+                    Auswahl von pädagogischen Fachkräften
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-6"
+                                                                      value="1"
+                                                                      title="Auswahl von pädagogischen Fachkräften: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-6"
+                                                                      value="2"
+                                                                      title="Auswahl von pädagogischen Fachkräften: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-6"
+                                                                      value="3"
+                                                                      title="Auswahl von pädagogischen Fachkräften: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-6"
+                                                                      value="4"
+                                                                      title="Auswahl von pädagogischen Fachkräften: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-6"
+                                                                      value="5"
+                                                                      title="Auswahl von pädagogischen Fachkräften: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-6-comment"
+                                          title="Kommentar zu Auswahl von pädagogischen Fachkräften"/></div>
+            </div>
+            <!-- Auswahl von Honorarkräften -->
+            <div class="row item">
+                <div class="col-5" title="Auswahl von Honorarkräften">
+                    Auswahl von Honorarkräften
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-7"
+                                                                      value="1"
+                                                                      title="Auswahl von Honorarkräften: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-7"
+                                                                      value="2"
+                                                                      title="Auswahl von Honorarkräften: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-7"
+                                                                      value="3"
+                                                                      title="Auswahl von Honorarkräften: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-7"
+                                                                      value="4"
+                                                                      title="Auswahl von Honorarkräften: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q5-7"
+                                                                      value="5"
+                                                                      title="Auswahl von Honorarkräften: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q5-7-comment"
+                                          title="Kommentar zu Auswahl von Honorarkräften"/></div>
             </div>
         </div>
         <div class="question" id="q6">
             <div class="row">
-                <div class="col-9 col-md-8 col-sm 7">
+                <div class="col-5">
                     <strong>Frage 6: Wie beteiligt Ihr Nichtbesucher*innen der Einrichtung?</strong>
                 </div>
-                <div class="col-1 col-md-2 col-sm-3 legend-vertical">
-                    Machen wir regelmäßig<br/>
-                    Machen wir gelegentlich<br/>
-                    Gibt es noch nicht, ist geplant<br/>
-                    Für uns nicht möglich<br/>
-                    Lehnen wir ab
-                </div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Lehnen wir ab</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Für uns nicht möglich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Gibt es noch nicht, ist geplant</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir gelegentlich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir regelmäßig</div>
                 <div class="col-2" style="vertical-align: text-bottom;">
                     Kommentar (optional)
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <ul>
-                        <li>Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen
-                        <li>Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung
-                        <li>Evaluierung/Audit der eigenen Einrichtung durch junge Menschen
-                        <li>Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen
-                        <li>Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez
-                    </ul>
+            <!-- Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen -->
+            <div class="row item">
+                <div class="col-5" title="Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen">
+                    Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-1"
+                                                                      value="1"
+                                                                      title="Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-1"
+                                                                      value="2"
+                                                                      title="Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-1"
+                                                                      value="3"
+                                                                      title="Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-1"
+                                                                      value="4"
+                                                                      title="Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-1"
+                                                                      value="5"
+                                                                      title="Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q6-1-comment"
+                                          title="Kommentar zu Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen"/>
+                </div>
+            </div>
+            <!-- Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung -->
+            <div class="row item">
+                <div class="col-5" title="Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung">
+                    Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-2"
+                                                                      value="1"
+                                                                      title="Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-2"
+                                                                      value="2"
+                                                                      title="Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-2"
+                                                                      value="3"
+                                                                      title="Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-2"
+                                                                      value="4"
+                                                                      title="Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-2"
+                                                                      value="5"
+                                                                      title="Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q6-2-comment"
+                                          title="Kommentar zu Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung"/>
+                </div>
+            </div>
+            <!-- Evaluierung/Audit der eigenen Einrichtung durch junge Menschen -->
+            <div class="row item">
+                <div class="col-5" title="Evaluierung/Audit der eigenen Einrichtung durch junge Menschen">
+                    Evaluierung/Audit der eigenen Einrichtung durch junge Menschen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-3"
+                                                                      value="1"
+                                                                      title="Evaluierung/Audit der eigenen Einrichtung durch junge Menschen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-3"
+                                                                      value="2"
+                                                                      title="Evaluierung/Audit der eigenen Einrichtung durch junge Menschen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-3"
+                                                                      value="3"
+                                                                      title="Evaluierung/Audit der eigenen Einrichtung durch junge Menschen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-3"
+                                                                      value="4"
+                                                                      title="Evaluierung/Audit der eigenen Einrichtung durch junge Menschen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-3"
+                                                                      value="5"
+                                                                      title="Evaluierung/Audit der eigenen Einrichtung durch junge Menschen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q6-3-comment"
+                                          title="Kommentar zu Evaluierung/Audit der eigenen Einrichtung durch junge Menschen"/>
+                </div>
+            </div>
+            <!-- Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen -->
+            <div class="row item">
+                <div class="col-5"
+                     title="Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen">
+                    Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-4"
+                                                                      value="1"
+                                                                      title="Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-4"
+                                                                      value="2"
+                                                                      title="Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-4"
+                                                                      value="3"
+                                                                      title="Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-4"
+                                                                      value="4"
+                                                                      title="Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-4"
+                                                                      value="5"
+                                                                      title="Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q6-4-comment"
+                                          title="Kommentar zu Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen"/>
+                </div>
+            </div>
+            <!-- Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez -->
+            <div class="row item">
+                <div class="col-5" title="Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez">
+                    Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-5"
+                                                                      value="1"
+                                                                      title="Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez: Lehnen wir ab"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-5"
+                                                                      value="2"
+                                                                      title="Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez: Für uns nicht möglich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-5"
+                                                                      value="3"
+                                                                      title="Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez: Gibt es noch nicht, ist geplant"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-5"
+                                                                      value="4"
+                                                                      title="Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez: Machen wir gelegentlich"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q6-5"
+                                                                      value="5"
+                                                                      title="Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez: Machen wir regelmäßig"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q6-5-comment"
+                                          title="Kommentar zu Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez"/>
                 </div>
             </div>
         </div>
         <div class="question" id="q7">
             <div class="row">
-                <div class="col-9 col-md-8 col-sm 7">
-                    <strong>Frage 7: Welche Faktoren machen Eurer Erfahrung nach Beteiligungsaktivitäten für Kinder und Jugendliche besonders attraktiv?</strong>
+                <div class="col-5">
+                    <strong>Frage 7: Welche Faktoren machen Eurer Erfahrung nach Beteiligungsaktivitäten für Kinder und
+                        Jugendliche besonders attraktiv?</strong><br/>
+                    <span class="form-text">
+                        Bitte wählt für jeden Aspekt eine Einschätzung aus. Ergänzt gern im Kommentarbereich, was daran besonders wichtig oder unwichtig ist.
+                    </span>
                 </div>
-                <div class="col-1 col-md-2 col-sm-3 legend-vertical">
-                    sehr attraktiv<br/>
-                    eher attraktiv<br/>
-                    teils/teils<br/>
-                    eher unattraktiv<br/>
-                    sehr unattraktiv
-                </div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">sehr unattraktiv</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">eher unattraktiv</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">teils/teils</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">eher attraktiv</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">sehr attraktiv</div>
                 <div class="col-2" style="vertical-align: text-bottom;">
                     Kommentar (optional)
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <ul>
-                        <li>Konkrete und zeitnahe Umsetzung der Ergebnisse der Beteiligung
-                        <li>Klarheit über die Grenzen der Beteiligungsmöglichkeiten
-                        <li>Vertrautes räumliches Umfeld bei Konferenzen und Workshops
-                        <li>Einbeziehung von Freund*innen und Freundesgruppen
-                        <li>Gelegenheit, neue junge Menschen zu treffen
-                        <li>Kontakte zu Personen aus Politik und Verwaltung, die Entscheidungen treffen
-                        <li>Verknüpfung mit kulturellen Aktivitäten wie Musik, Tanz, Theater usw.
-                        <li>Fachkräfte, die den jungen Menschen bekannt sind
-                        <li>Erwachsene, die bei der Bewältigung von Formalitäten unterstützen
-                        <li>Junge Menschen (z.B. Peer-Helper*innen), die Beteiligung mitorganisieren
-                        <li>Selbstorganisation, die von den jungen Menschen selbst initiiert wird
-                        <li>Kurze Dauer der Aktivitäten
-                    </ul>
+            <div class="row item">
+                <div class="col-5" title="Konkrete und zeitnahe Umsetzung der Ergebnisse der Beteiligung">
+                    Konkrete und zeitnahe Umsetzung der Ergebnisse der Beteiligung
                 </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-1"
+                                                                      value="1"
+                                                                      title="Konkrete und zeitnahe Umsetzung: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-1"
+                                                                      value="2"
+                                                                      title="Konkrete und zeitnahe Umsetzung: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-1"
+                                                                      value="3"
+                                                                      title="Konkrete und zeitnahe Umsetzung: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-1"
+                                                                      value="4"
+                                                                      title="Konkrete und zeitnahe Umsetzung: Eher attraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-1"
+                                                                      value="5"
+                                                                      title="Konkrete und zeitnahe Umsetzung: Sehr attraktiv"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-1-comment"
+                                          title="Kommentar zu Konkrete und zeitnahe Umsetzung"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Klarheit über die Grenzen der Beteiligungsmöglichkeiten">
+                    Klarheit über die Grenzen der Beteiligungsmöglichkeiten
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-2"
+                                                                      value="1"
+                                                                      title="Grenzen der Beteiligung: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-2"
+                                                                      value="2"
+                                                                      title="Grenzen der Beteiligung: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-2"
+                                                                      value="3"
+                                                                      title="Grenzen der Beteiligung: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-2"
+                                                                      value="4"
+                                                                      title="Grenzen der Beteiligung: Eher attraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-2"
+                                                                      value="5"
+                                                                      title="Grenzen der Beteiligung: Sehr attraktiv"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-2-comment"
+                                          title="Kommentar zu Grenzen der Beteiligung"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Vertrautes räumliches Umfeld bei Konferenzen und Workshops">
+                    Vertrautes räumliches Umfeld bei Konferenzen und Workshops
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-3"
+                                                                      value="1"
+                                                                      title="Vertrautes Umfeld: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-3"
+                                                                      value="2"
+                                                                      title="Vertrautes Umfeld: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-3"
+                                                                      value="3" title="Vertrautes Umfeld: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-3"
+                                                                      value="4"
+                                                                      title="Vertrautes Umfeld: Eher attraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-3"
+                                                                      value="5"
+                                                                      title="Vertrautes Umfeld: Sehr attraktiv"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-3-comment"
+                                          title="Kommentar zu Vertrautes Umfeld"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Einbeziehung von Freund*innen und Freundesgruppen">
+                    Einbeziehung von Freund*innen und Freundesgruppen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-4"
+                                                                      value="1"
+                                                                      title="Freundesgruppen: Sehr unattraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-4"
+                                                                      value="2"
+                                                                      title="Freundesgruppen: Eher unattraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-4"
+                                                                      value="3" title="Freundesgruppen: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-4"
+                                                                      value="4"
+                                                                      title="Freundesgruppen: Eher attraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-4"
+                                                                      value="5"
+                                                                      title="Freundesgruppen: Sehr attraktiv"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-4-comment"
+                                          title="Kommentar zu Freundesgruppen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Gelegenheit, neue junge Menschen zu treffen">
+                    Gelegenheit, neue junge Menschen zu treffen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-5"
+                                                                      value="1"
+                                                                      title="Neue Menschen: Sehr unattraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-5"
+                                                                      value="2"
+                                                                      title="Neue Menschen: Eher unattraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-5"
+                                                                      value="3" title="Neue Menschen: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-5"
+                                                                      value="4" title="Neue Menschen: Eher attraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-5"
+                                                                      value="5" title="Neue Menschen: Sehr attraktiv"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-5-comment"
+                                          title="Kommentar zu Neue Menschen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Kontakte zu Personen aus Politik und Verwaltung, die Entscheidungen treffen">
+                    Kontakte zu Personen aus Politik und Verwaltung, die Entscheidungen treffen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-6"
+                                                                      value="1"
+                                                                      title="Politik-Kontakte: Sehr unattraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-6"
+                                                                      value="2"
+                                                                      title="Politik-Kontakte: Eher unattraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-6"
+                                                                      value="3" title="Politik-Kontakte: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-6"
+                                                                      value="4"
+                                                                      title="Politik-Kontakte: Eher attraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-6"
+                                                                      value="5"
+                                                                      title="Politik-Kontakte: Sehr attraktiv"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-6-comment"
+                                          title="Kommentar zu Politik-Kontakte"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Verknüpfung mit kulturellen Aktivitäten wie Musik, Tanz, Theater usw.">
+                    Verknüpfung mit kulturellen Aktivitäten wie Musik, Tanz, Theater usw.
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-7"
+                                                                      value="1"
+                                                                      title="Kulturaktivitäten: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-7"
+                                                                      value="2"
+                                                                      title="Kulturaktivitäten: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-7"
+                                                                      value="3" title="Kulturaktivitäten: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-7"
+                                                                      value="4"
+                                                                      title="Kulturaktivitäten: Eher attraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-7"
+                                                                      value="5"
+                                                                      title="Kulturaktivitäten: Sehr attraktiv"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-7-comment"
+                                          title="Kommentar zu Kulturaktivitäten"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Fachkräfte, die den jungen Menschen bekannt sind">
+                    Fachkräfte, die den jungen Menschen bekannt sind
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-8"
+                                                                      value="1"
+                                                                      title="Bekannte Fachkräfte: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-8"
+                                                                      value="2"
+                                                                      title="Bekannte Fachkräfte: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-8"
+                                                                      value="3"
+                                                                      title="Bekannte Fachkräfte: Teils/teils"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-8"
+                                                                      value="4"
+                                                                      title="Bekannte Fachkräfte: Eher attraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-8"
+                                                                      value="5"
+                                                                      title="Bekannte Fachkräfte: Sehr attraktiv"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-8-comment"
+                                          title="Kommentar zu Bekannte Fachkräfte"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Erwachsene, die bei der Bewältigung von Formalitäten unterstützen">
+                    Erwachsene, die bei der Bewältigung von Formalitäten unterstützen
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-9"
+                                                                      value="1"
+                                                                      title="Unterstützung Formalitäten: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-9"
+                                                                      value="2"
+                                                                      title="Unterstützung Formalitäten: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-9"
+                                                                      value="3"
+                                                                      title="Unterstützung Formalitäten: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-9"
+                                                                      value="4"
+                                                                      title="Unterstützung Formalitäten: Eher attraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-9"
+                                                                      value="5"
+                                                                      title="Unterstützung Formalitäten: Sehr attraktiv"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-9-comment"
+                                          title="Kommentar zu Unterstützung Formalitäten"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Junge Menschen (z.B. Peer-Helper*innen), die Beteiligung mitorganisieren">
+                    Junge Menschen (z.B. Peer-Helper*innen), die Beteiligung mitorganisieren
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-10"
+                                                                      value="1"
+                                                                      title="Peer-Helper*innen: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-10"
+                                                                      value="2"
+                                                                      title="Peer-Helper*innen: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-10"
+                                                                      value="3" title="Peer-Helper*innen: Teils/teils"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-10"
+                                                                      value="4"
+                                                                      title="Peer-Helper*innen: Eher attraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-10"
+                                                                      value="5"
+                                                                      title="Peer-Helper*innen: Sehr attraktiv"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-10-comment"
+                                          title="Kommentar zu Peer-Helper*innen"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Selbstorganisation, die von den jungen Menschen selbst initiiert wird">
+                    Selbstorganisation, die von den jungen Menschen selbst initiiert wird
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-11"
+                                                                      value="1"
+                                                                      title="Selbstorganisation: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-11"
+                                                                      value="2"
+                                                                      title="Selbstorganisation: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-11"
+                                                                      value="3"
+                                                                      title="Selbstorganisation: Teils/teils"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-11"
+                                                                      value="4"
+                                                                      title="Selbstorganisation: Eher attraktiv"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-11"
+                                                                      value="5"
+                                                                      title="Selbstorganisation: Sehr attraktiv"/></div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-11-comment"
+                                          title="Kommentar zu Selbstorganisation"/></div>
+            </div>
+            <div class="row item">
+                <div class="col-5" title="Kurze Dauer der Aktivitäten">
+                    Kurze Dauer der Aktivitäten
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-12"
+                                                                      value="1" title="Kurze Dauer: Sehr unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-12"
+                                                                      value="2" title="Kurze Dauer: Eher unattraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-12"
+                                                                      value="3" title="Kurze Dauer: Teils/teils"/></div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-12"
+                                                                      value="4" title="Kurze Dauer: Eher attraktiv"/>
+                </div>
+                <div class="col-1" style="text-align: center;"><input class="form-check-input" type="radio" name="q7-12"
+                                                                      value="5" title="Kurze Dauer: Sehr attraktiv"/>
+                </div>
+                <div class="col-2"><input class="form-control" type="text" name="q7-12-comment"
+                                          title="Kommentar zu Kurze Dauer"/></div>
             </div>
         </div>
     </form>
+    <div class="question" id="ctrl-panel" style="padding: 2em;">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" id="btn-submit">Speichern</button>
+                <button type="button" class="btn btn-danger" id="btn-reset">Zurücksetzen</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                Kontakt
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+<script type="text/javascript">
+    console.log("JS geladen.");
+
+    function resetForm() {
+        if (confirm("Soll das Formular wirklich geleert werden?")) {
+            console.log("Formular wird geleert.");
+            document.getElementById("form").reset();
+        }
+    }
+
+    document.getElementById("btn-reset").addEventListener("click", resetForm);
+</script>
 </body>
 </html>

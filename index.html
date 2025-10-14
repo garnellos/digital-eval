@@ -52,6 +52,7 @@
 <div class="container-md" style="min-width: 42em;">
     <div class="question" id="header" style="margin-top: 1em; padding: 2em;">
         <h1>Evaluationsbogen zur Beteiligung junger Menschen in der Neuköllner Jugendarbeit</h1>
+        <input class="form-control" id="proj-name" type="text" placeholder="Name der Einrichtung oder des Projekts" />
     </div>
     <form id="form">
         <div class="question" id="q1">
@@ -399,6 +400,17 @@
                 </div>
                 <div class="col-2"><input class="form-control" type="text" name="q1-12-comment"
                                           title="Kommentar zu Teilnahme Teambesprechung"/></div>
+            </div>
+            <div class="row">
+                <div class="col-5">&nbsp;</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Lehnen wir ab</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Für uns nicht möglich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Gibt es noch nicht, ist geplant</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir gelegentlich</div>
+                <div class="col-1" style="font-size: 10pt; text-align: center;">Machen wir regelmäßig</div>
+                <div class="col-2" style="vertical-align: text-bottom;">
+                    Kommentar (optional)
+                </div>
             </div>
             <!-- Evaluierung/Audit der Einrichtung durch die Besucher*innen -->
             <div class="row item">
@@ -2166,6 +2178,11 @@
 <script type="text/javascript">
     console.log("JS geladen.");
 
+    /**
+     * Resets the form by clearing all its input fields and restoring their default values.
+     * A confirmation prompt is displayed to the user before performing the reset action.
+     * @return {void} Does not return a value.
+     */
     function resetForm() {
         if (confirm("Soll das Formular wirklich geleert werden?")) {
             console.log("Formular wird geleert.");
@@ -2173,7 +2190,80 @@
         }
     }
 
+    /**
+     * Escapes a value for safe inclusion in a CSV file by wrapping it in quotes
+     * and escaping any internal double quotes.
+     *
+     * @param {string|number|null} val - The value to be escaped. Can be a string, number, or null.
+     * @return {string} The CSV-escaped string. If the input is null, returns an empty string.
+     */
+    function csvEscape(val) {
+        if (val == null) return "";
+        // Anführungszeichen doppeln
+        val = String(val).replace(/"/g, '""');
+        return `"${val}"`;
+    }
+
+    /**
+     * Exports data collected from DOM elements into a CSV file and triggers a download of the generated file.
+     *
+     * The function retrieves data from elements matching the `.row.item` class and includes values from radio inputs,
+     * checked states, and associated comments. It also adds a project name as the first entry in the data.
+     * Each entry is properly escaped and converted into a CSV string, separated by semicolons (;).
+     *
+     * @return {void} Does not return a value. The function directly downloads a CSV file based on the collected data.
+     */
+    function saveToCSV() {
+        const rows = document.querySelectorAll('.row.item');
+
+        let projName = document.querySelector("#proj-name").value;
+
+        const header = [];
+        const values = [];
+
+        header.push(csvEscape("proj-name"));
+        values.push(csvEscape(projName));
+
+        rows.forEach(row => {
+            // Name des Radio-Inputs (z. B. "q1-1")
+            const radio = row.querySelector('input[type="radio"]');
+            const radioName = radio ? radio.name : "";
+
+            // Checked-Value
+            const checked = row.querySelector('input[type="radio"]:checked');
+            const radioValue = checked ? checked.value : "";
+
+            // Name & Value des Kommentarfelds
+            const commentInput = row.querySelector('input[type="text"]');
+            const commentName = radioName + 'c';
+            const commentValue = commentInput ? commentInput.value.replace(/"/g, '""') : "";
+
+            header.push(csvEscape(radioName), csvEscape(commentName));
+            values.push(csvEscape(radioValue), csvEscape(commentValue));
+        });
+
+        // CSV-Zeilen mit ; trennen
+        const separator = ";";
+        const csvString = [
+            header.join(separator),
+            values.join(separator)
+        ].join('\n');
+
+        // Download auslösen
+        const blob = new Blob([csvString], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = (projName? projName : "evaluationsbogen") + ".csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+
     document.getElementById("btn-reset").addEventListener("click", resetForm);
+    document.getElementById("btn-submit").addEventListener("click", saveToCSV);
 </script>
 </body>
 </html>

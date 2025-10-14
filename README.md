@@ -2,8 +2,20 @@
 
 # Codebuch
 
-## Frage 1
-**Welche Formen der Beteiligung und Selbstorganisation gibt es in Eurer Einrichtung?**
+**Itembezeichnungen**: q*f*-*i*<br>
+f = Nummer der Frage<br>
+i = Nummer des Items
+
+## Frage 1: Welche Formen der Beteiligung und Selbstorganisation gibt es in Eurer Einrichtung?
+
+### Skala
+1. Lehnen wir ab
+2. Für uns nicht möglich
+3. Gibt es noch nicht, ist geplant
+4. Machen wir gelegentlich
+5. Machen wir regelmäßig
+
+### Items
  1. Vollversammlungen, Plenum für alle Besucher\*innen ohne Delegation
  2. Barcamps
  3. Club-/Zentrumsrat mit delegierten Mitgliedern der Besucher\*innen
@@ -28,8 +40,15 @@
 22. Besuche von Orten politischer Entscheidungen (z.B. BVV, Bundestag) bei gegebenen Anlässen
 23. Diskussion von politischen Entscheidungen mit den Besucher\*innen
 
-## Frage 2
-**Was passiert mit den Ergebnissen von Beteiligungsprozessen?**
+## Frage 2: Was passiert mit den Ergebnissen von Beteiligungsprozessen?
+### Skala
+1. Lehnen wir ab
+2. Für uns nicht möglich
+3. Gibt es noch nicht, ist geplant
+4. Machen wir gelegentlich
+5. Machen wir regelmäßig
+
+### Items
 1. Die Ergebnisse werden im Team besprochen
 2. Die Ergebnisse sind Grundlage für die inhaltliche Planung von Angeboten
 3. Die Ergebnisse sind Grundlage für die Finanzplanung der Einrichtung
@@ -38,8 +57,15 @@
 6. Möglichkeiten politischer Teilhabe zur Umsetzung von Bedarfen und Wünschen werden thematisiert
 7. Die Ergebnisse dienen als Grundlage zur Planung weiterer Beteiligungsprozesse
 
-## Frage 3
-**Auf welche Ressourcen greift Ihr zurück, um Beteiligung umzusetzen?**
+## Frage 3: Auf welche Ressourcen greift Ihr zurück, um Beteiligung umzusetzen?
+### Skala
+1. Lehnen wir ab
+2. Für uns nicht möglich
+3. Gibt es noch nicht, ist geplant
+4. Machen wir gelegentlich
+5. Machen wir regelmäßig
+
+### Items
  1. Beteiligungskonzept der Einrichtung/des Trägers
  2. Know-how der Fachkräfte in der Einrichtung
  3. Nutzung des QM-Handbuchs
@@ -51,8 +77,15 @@
  9. Methoden aus dem Internet
 10. Methoden aus Fachliteratur
 
-## Frage 4
-**Welche Hürden erschweren Beteiligung im Einrichtungsalltag?**
+## Frage 4: Welche Hürden erschweren Beteiligung im Einrichtungsalltag?
+### Skala
+1. gar nicht
+2. selten
+3. manchmal
+4. häufig
+5. (fast) immer
+
+### Items
 1. unstete Teilnahme
 2. fehlende Ausdauer, an einem längeren Projekt verbindlich teilzunehmen
 3. fehlende Verbindlichkeit
@@ -63,8 +96,15 @@
 8. fehlende Motivation
 9. fehlende Unterstützung durch Fachstellen
 
-## Frage 5
-**Welche Aspekte des Einrichtungsalltags bestimmen Besucher\*innen mit?**
+## Frage 5: Welche Aspekte des Einrichtungsalltags bestimmen Besucher\*innen mit?
+### Skala
+1. Lehnen wir ab
+2. Für uns nicht möglich
+3. Gibt es noch nicht, ist geplant
+4. Machen wir gelegentlich
+5. Machen wir regelmäßig
+
+### Items
 1. Schaffung neuer Angebote
 2. Ausgestaltung vorhandener Angebote
 3. Räumliche Gestaltung der Einrichtung
@@ -73,16 +113,30 @@
 6. Auswahl von pädagogischen Fachkräften
 7. Auswahl von Honorarkräften 
 
-## Frage 6
-**Wie beteiligt Ihr Nichtbesucher\*innen der Einrichtung?**
+## Frage 6: Wie beteiligt Ihr Nichtbesucher\*innen der Einrichtung?
+### Skala
+1. Lehnen wir ab
+2. Für uns nicht möglich
+3. Gibt es noch nicht, ist geplant
+4. Machen wir gelegentlich
+5. Machen wir regelmäßig
+
+### Items
 1. Einholen von Vorschlägen von Schüler*innen bzw. Schülervertretungen
 2. Kinder- und Jugendkonferenzen oder -workshops in der eigenen Einrichtung
 3. Evaluierung/Audit der eigenen Einrichtung durch junge Menschen
 4. Nutzung von Multiplikator*innen (z.B. Lehrer*innen), um Angebote bekannt zu machen
 5. Erkundung von Interessen in Zusammenarbeit mit anderen Einrichtungen im Kiez 
 
-## Frage 7
-**Welche Faktoren machen Eurer Erfahrung nach Beteiligungsaktivitäten für Kinder und Jugendliche besonders attraktiv?**
+## Frage 7: Welche Faktoren machen Eurer Erfahrung nach Beteiligungsaktivitäten für Kinder und Jugendliche besonders attraktiv?
+### Skala
+1. sehr unattraktiv
+2. eher unattraktiv
+3. teils/teils
+4. eher attraktiv
+5. sehr attraktiv
+
+### Items
  1. Konkrete und zeitnahe Umsetzung der Ergebnisse der Beteiligung
  2. Klarheit über die Grenzen der Beteiligungsmöglichkeiten
  3. Vertrautes räumliches Umfeld bei Konferenzen und Workshops

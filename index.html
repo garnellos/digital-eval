@@ -2262,9 +2262,8 @@
         // CSV-Zeilen mit ; trennen
         const separator = ";";
         const csvString = [
-            header.join(separator),
-            values.join(separator),
-            separator
+            header.join(separator) + separator,
+            values.join(separator) + separator,
         ].join('\n') + '\n';
 
         // Download auslösen

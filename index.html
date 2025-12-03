@@ -2341,7 +2341,7 @@
         try {
             const data = localStorage.getItem('evaluationsbogen_data');
             if (!data) {
-                alert('Keine gespeicherten Daten im lokalen Speicher vorhanden.');
+                if (alertUser) alert('Keine gespeicherten Daten im lokalen Speicher vorhanden.');
                 return;
             }
 
@@ -2378,7 +2378,8 @@
             if (alertUser) alert('Daten aus dem lokalen Speicher erfolgreich geladen!');
         } catch (error) {
             console.error('Fehler beim Laden aus localStorage:', error);
-            alert('Fehler beim Laden der Daten: ' + error.message);
+            if (alertUser) alert('Fehler beim Laden der Daten: ' + error.message);
+            clearLocalStorage();
         }
     }
 
@@ -2446,12 +2447,13 @@
                     // Populate form fields
                     const rows = document.querySelectorAll('.row.item');
                     rows.forEach(row => {
-                        const radio = row.querySelector('input[type="radio"]');
-                        const radioName = radio ? radio.name : "";
+                        const radio = row.querySelectorAll('input[type="radio"]');
+                        if (radio.length <= 0) return;
+                        const radioName = radio[0].name;
                         
                         if (radioName && dataMap[radioName]) {
                             // Set radio button value
-                            const radioToCheck = row.querySelector(`input[type="radio"][name="${dataMap[radioName]}"]`);
+                            const radioToCheck = radio[dataMap[radioName] - 1];
                             if (radioToCheck) {
                                 radioToCheck.checked = true;
                             }

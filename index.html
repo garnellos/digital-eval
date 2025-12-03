@@ -2337,7 +2337,7 @@
      *
      * @return {void} Does not return a value.
      */
-    function loadFromLocalStorage() {
+    function loadFromLocalStorage(alertUser) {
         try {
             const data = localStorage.getItem('evaluationsbogen_data');
             if (!data) {
@@ -2375,7 +2375,7 @@
             });
 
             console.log('Daten aus localStorage geladen.');
-            alert('Daten aus dem lokalen Speicher erfolgreich geladen!');
+            if (alertUser) alert('Daten aus dem lokalen Speicher erfolgreich geladen!');
         } catch (error) {
             console.error('Fehler beim Laden aus localStorage:', error);
             alert('Fehler beim Laden der Daten: ' + error.message);
@@ -2488,6 +2488,8 @@
 
     // Auto-save to localStorage every 30 seconds
     setInterval(saveToLocalStorage, 30000);
+
+    loadFromLocalStorage(false);
 
 </script>
 </body>

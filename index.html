@@ -74,6 +74,14 @@
             Download angeboten. Schickt uns diese bitte zusammen mit dem Sachbericht zu.
         </p>
         <p>
+            Es gibt auch die Möglichkeit, eine bereits ausgefüllte Datei wieder zu laden, um
+            Änderungen vorzunehmen oder Daten zu überprüfen. So müsst Ihr den Bogen nicht in einer
+            Sitzung komplett ausfüllen, sondern könnt die Bearbeitung unterbrechen. Speichert dazu die
+            Datei wie oben angegeben und ladet sie später über den "Laden"-Button wieder hoch.
+            Euer Bearbeitungsfortschritt wird außerdem alle 30 Sekunden automatisch im Browser
+            gespeichert.
+        </p>
+        <p>
             Vielen Dank für Eure Mitwirkung!<br>Eure Fachsteuerung
         </p>
         <input class="form-control" id="proj-name" type="text" placeholder="Bitte gebt hier den Namen der Einrichtung oder des Projekts ein." />
@@ -2186,6 +2194,7 @@
         <div class="row">
             <div class="col-12">
                 <button type="button" class="btn btn-primary" id="btn-submit">Speichern</button>
+                <button type="button" class="btn btn-primary" id="btn-load">Laden</button>
                 <button type="button" class="btn btn-danger" id="btn-reset">Zurücksetzen</button>
             </div>
         </div>
@@ -2238,6 +2247,8 @@
      * @return {void} Does not return a value. The function directly downloads a CSV file based on the collected data.
      */
     function saveToCSV() {
+        saveToLocalStorage();
+
         const rows = document.querySelectorAll('.row.item');
 
         let projName = document.querySelector("#proj-name").value;
@@ -2285,9 +2296,201 @@
         URL.revokeObjectURL(url);
     }
 
+    /**
+     * Saves the current form data to the browser's localStorage.
+     * This allows users to restore their progress later without downloading a file.
+     *
+     * @return {void} Does not return a value.
+     */
+    function saveToLocalStorage() {
+        const rows = document.querySelectorAll('.row.item');
+        const data = {};
+
+        data['proj-name'] = document.querySelector("#proj-name").value;
+
+        rows.forEach(row => {
+            const radio = row.querySelector('input[type="radio"]');
+            const radioName = radio ? radio.name : "";
+
+            if (radioName) {
+                const checked = row.querySelector('input[type="radio"]:checked');
+                data[radioName] = checked ? checked.value : "";
+
+                const commentInput = row.querySelector('input[type="text"]');
+                if (commentInput) {
+                    data[radioName + 'c'] = commentInput.value;
+                }
+            }
+        });
+
+        try {
+            localStorage.setItem('evaluationsbogen_data', JSON.stringify(data));
+            console.log('Daten in localStorage gespeichert.');
+        } catch (error) {
+            console.error('Fehler beim Speichern in localStorage:', error);
+        }
+    }
+
+    /**
+     * Loads data from the browser's localStorage and populates the form.
+     *
+     * @return {void} Does not return a value.
+     */
+    function loadFromLocalStorage() {
+        try {
+            const data = localStorage.getItem('evaluationsbogen_data');
+            if (!data) {
+                alert('Keine gespeicherten Daten im lokalen Speicher vorhanden.');
+                return;
+            }
+
+            const dataMap = JSON.parse(data);
+
+            // Set project name
+            if (dataMap['proj-name']) {
+                document.querySelector("#proj-name").value = dataMap['proj-name'];
+            }
+
+            // Populate form fields
+            const rows = document.querySelectorAll('.row.item');
+            rows.forEach(row => {
+                const radio = row.querySelector('input[type="radio"]');
+                const radioName = radio ? radio.name : "";
+
+                if (radioName && dataMap[radioName]) {
+                    const radioToCheck = row.querySelector(`input[type="radio"][value="${dataMap[radioName]}"]`);
+                    if (radioToCheck) {
+                        radioToCheck.checked = true;
+                    }
+                }
+
+                const commentInput = row.querySelector('input[type="text"]');
+                if (commentInput) {
+                    const commentName = radioName + 'c';
+                    if (dataMap[commentName]) {
+                        commentInput.value = dataMap[commentName];
+                    }
+                }
+            });
+
+            console.log('Daten aus localStorage geladen.');
+            alert('Daten aus dem lokalen Speicher erfolgreich geladen!');
+        } catch (error) {
+            console.error('Fehler beim Laden aus localStorage:', error);
+            alert('Fehler beim Laden der Daten: ' + error.message);
+        }
+    }
+
+    /**
+     * Clears all data from the browser's localStorage.
+     *
+     * @return {void} Does not return a value.
+     */
+    function clearLocalStorage() {
+        if (confirm('Möchtest du die gespeicherten Daten wirklich aus dem lokalen Speicher löschen?')) {
+            try {
+                localStorage.removeItem('evaluationsbogen_data');
+                console.log('localStorage geleert.');
+                alert('Gespeicherte Daten wurden gelöscht.');
+            } catch (error) {
+                console.error('Fehler beim Löschen aus localStorage:', error);
+            }
+        }
+    }
+
+    /**
+     * Loads data from a CSV file and populates the form with the loaded values.
+     *
+     * The function creates a file input element, opens a file picker dialog, and reads the selected CSV file.
+     * It parses the CSV data (separated by semicolons) and populates the form fields including radio buttons
+     * and comment text inputs based on the loaded data.
+     *
+     * @return {void} Does not return a value.
+     */
+    function loadFromCSV() {
+        // Create a hidden file input element
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.csv';
+        
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const csv = event.target.result;
+                    const lines = csv.trim().split('\n');
+                    
+                    if (lines.length < 2) {
+                        alert('CSV-Datei ist leer oder ungültig.');
+                        return;
+                    }
+                    
+                    const headers = lines[0].split(';').map(h => h.replace(/^"|"$/g, ''));
+                    const values = lines[1].split(';').map(v => v.replace(/^"|"$/g, ''));
+                    
+                    // Create a map of header -> value
+                    const dataMap = {};
+                    headers.forEach((header, index) => {
+                        dataMap[header] = values[index] || '';
+                    });
+                    
+                    // Set project name
+                    if (dataMap['proj-name']) {
+                        document.querySelector("#proj-name").value = dataMap['proj-name'];
+                    }
+                    
+                    // Populate form fields
+                    const rows = document.querySelectorAll('.row.item');
+                    rows.forEach(row => {
+                        const radio = row.querySelector('input[type="radio"]');
+                        const radioName = radio ? radio.name : "";
+                        
+                        if (radioName && dataMap[radioName]) {
+                            // Set radio button value
+                            const radioToCheck = row.querySelector(`input[type="radio"][value="${dataMap[radioName]}"]`);
+                            if (radioToCheck) {
+                                radioToCheck.checked = true;
+                            }
+                        }
+                        
+                        // Set comment value
+                        const commentInput = row.querySelector('input[type="text"]');
+                        if (commentInput) {
+                            const commentName = radioName + 'c';
+                            if (dataMap[commentName]) {
+                                commentInput.value = dataMap[commentName];
+                            }
+                        }
+                    });
+                    
+                    console.log('CSV-Daten erfolgreich geladen.');
+                    alert('Daten erfolgreich geladen!');
+                } catch (error) {
+                    console.error('Fehler beim Laden der CSV-Datei:', error);
+                    alert('Fehler beim Laden der CSV-Datei: ' + error.message);
+                }
+            };
+            
+            reader.readAsText(file);
+        });
+        
+        // Trigger file picker
+        fileInput.click();
+    }
 
     document.getElementById("btn-reset").addEventListener("click", resetForm);
     document.getElementById("btn-submit").addEventListener("click", saveToCSV);
+    document.getElementById("btn-load").addEventListener("click", loadFromCSV);
+    document.getElementById("btn-save-local").addEventListener("click", saveToLocalStorage);
+    document.getElementById("btn-load-local").addEventListener("click", loadFromLocalStorage);
+    document.getElementById("btn-clear-local").addEventListener("click", clearLocalStorage);
+
+    // Auto-save to localStorage every 30 seconds
+    setInterval(saveToLocalStorage, 30000);
+
 </script>
 </body>
 </html>

@@ -2221,6 +2221,7 @@
             console.log("Formular wird geleert.");
             document.getElementById("form").reset();
         }
+        clearLocalStorage();
     }
 
     /**
@@ -2424,7 +2425,7 @@
                     const lines = csv.trim().split('\n');
                     
                     if (lines.length < 2) {
-                        alert('CSV-Datei ist leer oder ungültig.');
+                        alert('Diese Datei ist leer oder ungültig.');
                         return;
                     }
                     
@@ -2450,7 +2451,7 @@
                         
                         if (radioName && dataMap[radioName]) {
                             // Set radio button value
-                            const radioToCheck = row.querySelector(`input[type="radio"][value="${dataMap[radioName]}"]`);
+                            const radioToCheck = row.querySelector(`input[type="radio"][name="${dataMap[radioName]}"]`);
                             if (radioToCheck) {
                                 radioToCheck.checked = true;
                             }
@@ -2467,10 +2468,10 @@
                     });
                     
                     console.log('CSV-Daten erfolgreich geladen.');
-                    alert('Daten erfolgreich geladen!');
+                    alert('Daten erfolgreich geladen.');
                 } catch (error) {
                     console.error('Fehler beim Laden der CSV-Datei:', error);
-                    alert('Fehler beim Laden der CSV-Datei: ' + error.message);
+                    alert('Fehler beim Laden der Datei: ' + error.message);
                 }
             };
             
@@ -2484,9 +2485,6 @@
     document.getElementById("btn-reset").addEventListener("click", resetForm);
     document.getElementById("btn-submit").addEventListener("click", saveToCSV);
     document.getElementById("btn-load").addEventListener("click", loadFromCSV);
-    document.getElementById("btn-save-local").addEventListener("click", saveToLocalStorage);
-    document.getElementById("btn-load-local").addEventListener("click", loadFromLocalStorage);
-    document.getElementById("btn-clear-local").addEventListener("click", clearLocalStorage);
 
     // Auto-save to localStorage every 30 seconds
     setInterval(saveToLocalStorage, 30000);
